@@ -56,7 +56,8 @@ void stringConstructor(){
         std::cerr << e.what() << '\n';
     }
 
-
+    string str9(str1.begin(),str1.begin()+2);
+    cout<<"str9="<<str9<<endl;
     
 }
 }
