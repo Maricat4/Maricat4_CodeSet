@@ -26,7 +26,7 @@ STR::STR(const char *str=0)
         m_data = new char[1];
         *m_data = '\0';
     }
-    
+    cout<<"STR"<<endl;
 }
 inline
 STR::STR(const STR & str)
@@ -46,6 +46,7 @@ STR& STR::operator=(const STR &str)
     delete[] m_data;
     m_data = new char[strlen(str.m_data)+1];
     strcpy(m_data,str.m_data);
+    cout<<"operator="<<endl;
     return *this;
 }
 STR::~STR()
@@ -55,8 +56,16 @@ STR::~STR()
 }
 void test(){
     STR s1("1");//通过const char* 构造
-    STR s2("2");//拷贝构造
-    STR s3("3");
+    // STR s2("2");//拷贝构造
+    // STR s3("3");
+
+    STR s5 = "12345";
+    //STR s6 = 'a';
+    STR s4 = s1;//调用了拷贝构造
+    cout<<(long long)&s1<<endl;
+    cout<<(long long)&s5<<endl;
+    cout<<(long long)&s4<<endl;
+    
     // s3 = s3;
     // s3 = s2;
 }
