@@ -60,10 +60,34 @@ void stringConstructor(){
     cout<<"str9="<<str9<<endl;
     
 }
+//string的大小与容量
+void stringCapacity(){
+    
+    string str1("stringstringstring");
+    string str0("abcdefg");
+    cout<<str1.size()<<endl;
+    cout<<str1.length()<<endl;
+    cout<<str1.capacity()<<endl;
+    cout<<(long long)&str1<<endl;
+    str1 = "stringstringstrings";
+    cout<<str1.size()<<endl;
+    cout<<str1.length()<<endl;
+    cout<<str1.capacity()<<endl;
+    cout<<(long long)&str1<<endl;
+}
 }
 int main(){
+//string测试
+{
+    //自定义basic_string<T>
     //customize_basicstring::test();
-    stringoperator::stringConstructor();
+
+    //string构造函数test函数
+    //stringoperator::stringConstructor();
+
+    //string大小与容量
+    stringoperator::stringCapacity();
+}
     
     //cout<<str<<endl;
     system("pause");
