@@ -69,15 +69,27 @@ void stringCapacity(){
     cout<<str1.length()<<endl;
     cout<<str1.capacity()<<endl;
     cout<<*str1.begin()<<endl;
-
+    cout<<(long long)((void *)str1.data())<<endl;
     str1 = "stringstringstrings";
     cout<<str1.size()<<endl;
     cout<<str1.length()<<endl;
     cout<<str1.capacity()<<endl;
-    
-    cout<<*str1.begin()<<endl;//空间的大小变为原来的两倍，首地址却没有变，对象的地址和对象中的包含的字符数组地址不一致？
-
-
+    cout<<(long long)((void *)str1.data())<<endl;
+    cout<<*str1.begin()<<endl;
+    //空间的大小变为原来的两倍，对象的首地址没有变
+    //对象的地址和对象中的包含的字符数组地址不一致？
+    const char * p1 = str1.data();
+    cout<<"p1="<<p1<<endl;
+    cout<<"p1_address="<<(long long)p1<<endl;
+    str1 = "str1";
+    cout<<"p1="<<p1<<endl;
+    cout<<"p1_address="<<(long long)p1<<endl;
+    cout<<"str1="+str1<<endl;
+    cout<<str1.size()<<endl;
+    cout<<str1.length()<<endl;
+    cout<<str1.capacity()<<endl;
+    cout<<(long long)((void *)str1.data())<<endl;
+    cout<<*str1.begin()<<endl;
 }
 }
 int main(){
