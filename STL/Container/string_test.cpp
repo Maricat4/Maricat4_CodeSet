@@ -68,12 +68,16 @@ void stringCapacity(){
     cout<<str1.size()<<endl;
     cout<<str1.length()<<endl;
     cout<<str1.capacity()<<endl;
-    cout<<(long long)&str1<<endl;
+    cout<<*str1.begin()<<endl;
+
     str1 = "stringstringstrings";
     cout<<str1.size()<<endl;
     cout<<str1.length()<<endl;
     cout<<str1.capacity()<<endl;
-    cout<<(long long)&str1<<endl;
+    
+    cout<<*str1.begin()<<endl;//空间的大小变为原来的两倍，首地址却没有变，对象的地址和对象中的包含的字符数组地址不一致？
+
+
 }
 }
 int main(){
