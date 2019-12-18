@@ -68,6 +68,10 @@ void ShowStringContent(const string &str,const string &name){
     cout<<name<<" length()="<<str.length()<<endl;
     cout<<name<<" capacity()="<<str.capacity()<<endl;
 }
+void ShowCharStar(const char  *str,const string &name){
+    cout<<name<<":"<<str<<endl;
+    cout<<name<<" address:"<<(long long)str<<endl;
+}
 //string的大小与容量
 void stringCapacity(){
     
@@ -79,18 +83,12 @@ void stringCapacity(){
     ShowStringContent(str1,"str1");
     //空间的大小变为原来的两倍，对象的首地址没有变
     //对象的地址和对象中的包含的字符数组地址不一致？
-    const char * p1 = str1.data();
-    cout<<"p1="<<p1<<endl;
-    cout<<"p1_address="<<(long long)p1<<endl;
+    const char *p1 = str1.data();
+    ShowCharStar(p1,"p1");
     str1 = "str1";
-    cout<<"p1="<<p1<<endl;
-    cout<<"p1_address="<<(long long)p1<<endl;
-    cout<<"str1="+str1<<endl;
-    cout<<str1.size()<<endl;
-    cout<<str1.length()<<endl;
-    cout<<str1.capacity()<<endl;
-    cout<<(long long)((void *)str1.data())<<endl;
-    cout<<*str1.begin()<<endl;
+    ShowCharStar(p1,"p1");
+    ShowStringContent(str1,"str1");
+
 }
 }
 int main(){
