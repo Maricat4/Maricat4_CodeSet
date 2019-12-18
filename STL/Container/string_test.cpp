@@ -67,7 +67,6 @@ void ShowStringContent(const string &str,const string &name){
     cout<<name<<" size()="<<str.size()<<endl;
     cout<<name<<" length()="<<str.length()<<endl;
     cout<<name<<" capacity()="<<str.capacity()<<endl;
-
 }
 //string的大小与容量
 void stringCapacity(){
