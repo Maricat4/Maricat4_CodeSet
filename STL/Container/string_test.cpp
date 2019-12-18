@@ -60,22 +60,24 @@ void stringConstructor(){
     cout<<"str9="<<str9<<endl;
     
 }
+void ShowStringContent(const string &str,const string &name){
+    cout<<name<<":"<<str<<endl;
+    cout<<name<<" address:"<<(long long)&str<<endl;
+    cout<<name<<" data() address:"<<(long long)str.data()<<endl;
+    cout<<name<<" size()="<<str.size()<<endl;
+    cout<<name<<" length()="<<str.length()<<endl;
+    cout<<name<<" capacity()="<<str.capacity()<<endl;
+
+}
 //string的大小与容量
 void stringCapacity(){
     
     string str1("stringstringstring");
     string str0("abcdefg");
-    cout<<str1.size()<<endl;
-    cout<<str1.length()<<endl;
-    cout<<str1.capacity()<<endl;
-    cout<<*str1.begin()<<endl;
-    cout<<(long long)((void *)str1.data())<<endl;
+    ShowStringContent(str1,"str1");
+    ShowStringContent(str0,"str0");
     str1 = "stringstringstrings";
-    cout<<str1.size()<<endl;
-    cout<<str1.length()<<endl;
-    cout<<str1.capacity()<<endl;
-    cout<<(long long)((void *)str1.data())<<endl;
-    cout<<*str1.begin()<<endl;
+    ShowStringContent(str1,"str1");
     //空间的大小变为原来的两倍，对象的首地址没有变
     //对象的地址和对象中的包含的字符数组地址不一致？
     const char * p1 = str1.data();
