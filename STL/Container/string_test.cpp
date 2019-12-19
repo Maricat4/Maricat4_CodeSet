@@ -2,6 +2,10 @@
 #include <iostream>
 //typedef basic_string<int> intstring; 
 using namespace std;
+template<typename T>
+inline void showT(T a){
+    cout<<a<<endl;
+}
 namespace customize_basicstring{
 void test(){
     try
@@ -75,6 +79,9 @@ void ShowCharStar(const char  *str,const string &name){
 //string的大小与容量
 void stringCapacity(){
     
+    //str.data()返回的是字符串存储地址
+    //并且每次str重新分配字符串大小，并且是原来的两倍
+    //重新赋给的字符串str比现在已分配的大小大,会造成重新分配的操作，默认分配大小为15
     string str1("stringstringstring");
     string str0("abcdefg");
     ShowStringContent(str1,"str1");
@@ -90,6 +97,11 @@ void stringCapacity(){
     ShowStringContent(str1,"str1");
 
 }
+void stringCapacity1(){
+    string str0;
+    cout<<sizeof(*str0.data())<<endl;
+    showT(str0);
+}
 }
 int main(){
 //string测试
@@ -101,7 +113,8 @@ int main(){
     //stringoperator::stringConstructor();
 
     //string大小与容量
-    stringoperator::stringCapacity();
+    //stringoperator::stringCapacity();
+    stringoperator::stringCapacity1();
 }
     
     //cout<<str<<endl;
