@@ -103,6 +103,13 @@ void stringCapacity1(){
     showT(str0);
 }
 }
+
+class A{
+    const static int a = 7;
+    private:
+        char *str;
+};
+//int A::a = 7;
 int main(){
 //string测试
 {
@@ -115,6 +122,10 @@ int main(){
     //string大小与容量
     //stringoperator::stringCapacity();
     stringoperator::stringCapacity1();
+    cout<<"A="<<sizeof(A)<<endl;
+    cout<<"A="<<sizeof(A*)<<endl;
+    cout<<"A="<<sizeof(string)<<endl;
+    cout<<"A="<<sizeof(int)<<endl;
 }
     
     //cout<<str<<endl;
