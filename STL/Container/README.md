@@ -35,7 +35,7 @@ string相当于basic_string<char>,其中basic_string<T>为字符串模板类，�
 	//访问最前、最后元素
 	back		Access last character (public member function )
 	front 		Access first character (public member function )
-    2)通过迭代器访问
+	2)通过迭代器访问
     begin	Return iterator to beginning (public member function )
     end		Return iterator to end (public member function )
     //反向迭代器，reverse_iterator<iterator>
