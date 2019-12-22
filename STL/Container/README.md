@@ -29,13 +29,26 @@ string相当于basic_string<char>,其中basic_string<T>为字符串模板类，�
 	operator[]	Get character of string (public member function )
 	at			Get character in string (public member function )
     //通过以下两函数实现，区别于[]的访问方式，这种访问方式，会自动检查访问的位置是否有效
-    //使用两个的函数的原因是为了方便实现====对象的不同的访问权限
+    //使用两个的函数的原因是为了方便实现===>对象的不同的访问权限
           char& at (size_t pos);
 	const char& at (size_t pos) const;
 	//访问最前、最后元素
 	back		Access last character (public member function )
 	front 		Access first character (public member function )
     2）通过迭代器访问
+    begin	Return iterator to beginning (public member function )
+    end		Return iterator to end (public member function )
+    //反向迭代器，reverse_iterator<iterator>
+    rbegin	Return reverse iterator to reverse beginning (public member function )
+    rend	Return reverse iterator to reverse end (public member function )
+    //const_iterator是指向const character的迭代器,意味着无法修改这个只有读权限
+    //当去修改时，会报错“表达式必须是可修改的左值”
+    //以下均为C++11新特性
+    //其类型：const_iterator,reverse_iterator<const_iterator>
+    cbegin  Return const_iterator to beginning (public member function )
+    cend  	Return const_iterator to end (public member function )
+    crbegin Return const_reverse_iterator to reverse beginning (public member function )
+    crend  	Return const_reverse_iterator to reverse end (public member function )
     
 ```
 

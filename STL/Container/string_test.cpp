@@ -124,14 +124,17 @@ void stringCapacity1(){
 }
 //字符串元素的访问
 void stringElementAcess(){
+    string str0("abcdefg");
     try
     {
-        string str0("abcdefg");
+        
         showT(str0[0],"str0[0]=");
         //越界
         showT(str0[str0.size()],"str0[str0.size()]=");
         showT(str0.at(1),"str0.at(1)=");
         
+        showT(str0.back(),"str0.back=");
+        showT(str0.front(),"str0.front=");
         //showT(str0.at(str0.size()),"str0.at(str0.size())=");
         //showT(str0.at(-1),"str0.at(str0.size())=");
     }
@@ -140,8 +143,26 @@ void stringElementAcess(){
         std::cerr << e.what() << '\n';
     }
     
-    
-    
+    //使用迭代器
+    string::iterator it = str0.begin();
+    *it = 'b';
+    for (; it<str0.end(); ++it)
+    {
+        cout<<*it<<",";
+    }
+    cout<<endl;
+    string::const_iterator it1 = str0.cbegin();
+    //*it1 = 'a';
+    for (; it1!=str0.end(); ++it1)
+    {
+        cout<<*it1<<",";
+    }
+    cout<<endl;
+    string::reverse_iterator it2 = str0.rbegin();
+    for (; it2!=str0.rend(); ++it2)
+    {
+        cout<<*it2<<",";
+    }
 }
 //string测试
 void stringtest(){
