@@ -1,12 +1,20 @@
 #include <string>
 #include <iostream>
+#include <list>
+#include <vector>
+
+//方便调试获取变量名
+#define  varName(x) #x
+#define  printExp(exp) cout<<#exp<<"为:\t\t"<<(exp)<<endl  //这样就方便调试了，不用一个个的写变量名称了
+
 //typedef basic_string<int> intstring; 
 using namespace std;
 template<typename T>
-inline void showT(T a){
-    cout<<a<<endl;
+inline void showT(T a,const string &b = "output:"){
+    cout<<b<<a<<endl;
 }
-namespace customize_basicstring{
+#pragma region customize
+namespace customize{
 void test(){
     try
     {
@@ -26,6 +34,9 @@ void test(){
     }
 }
 }
+#pragma endregion
+
+#pragma region string
 namespace stringoperator{
 //string的构造方法
 void stringConstructor(){
@@ -62,6 +73,15 @@ void stringConstructor(){
 
     string str9(str1.begin(),str1.begin()+2);
     cout<<"str9="<<str9<<endl;
+
+    //尝试使用list的迭代器初始化string,报错无匹配的构造函数
+    // list<char> _list_char={'a','b','c'};
+    // string str10(_list_char.begin(),_list_char.begin()+2);
+    // cout<<"str10="<<str10<<endl;
+    //使用vector的迭代器可以初始化string
+    vector<char> _vector_char={'a','b','c'};
+    string str11(_vector_char.begin(),_vector_char.begin()+2);
+    cout<<"str11="<<str11<<endl;
     
 }
 void ShowStringContent(const string &str,const string &name){
@@ -102,17 +122,29 @@ void stringCapacity1(){
     cout<<sizeof(*str0.data())<<endl;
     showT(str0);
 }
+//字符串元素的访问
+void stringElementAcess(){
+    try
+    {
+        string str0("abcdefg");
+        showT(str0[0],"str0[0]=");
+        //越界
+        showT(str0[str0.size()],"str0[str0.size()]=");
+        showT(str0.at(1),"str0.at(1)=");
+        
+        //showT(str0.at(str0.size()),"str0.at(str0.size())=");
+        //showT(str0.at(-1),"str0.at(str0.size())=");
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+    
+    
 }
-
-class A{
-    const static int a = 7;
-    private:
-        char *str;
-};
-//int A::a = 7;
-int main(){
 //string测试
-{
+void stringtest(){
     //自定义basic_string<T>
     //customize_basicstring::test();
 
@@ -121,11 +153,39 @@ int main(){
 
     //string大小与容量
     //stringoperator::stringCapacity();
-    stringoperator::stringCapacity1();
+    //stringoperator::stringCapacity1();
+
+    //string元素访问
+    stringElementAcess();
+}
+}
+#pragma endregion
+
+#pragma region 各类小测试
+namespace tests{
+//testClassSize
+#pragma region testClassSize
+class A{
+const static int a = 7;
+private:
+    char *str;
+};
+//int A::a = 7;
+void test0(){
     cout<<"A="<<sizeof(A)<<endl;
     cout<<"A="<<sizeof(A*)<<endl;
     cout<<"A="<<sizeof(string)<<endl;
     cout<<"A="<<sizeof(int)<<endl;
+}
+#pragma endregion
+
+}
+
+#pragma endregion
+int main(){
+{
+    stringoperator::stringtest();
+
 }
     
     //cout<<str<<endl;
