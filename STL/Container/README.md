@@ -55,6 +55,11 @@ string相当于basic_string<char>,其中basic_string<T>为字符串模板类，�
 ```C++
 3.字符串的修改
     operator+= 	Append to string (public member function )
+    //四种方法，分别对应不同类型的重载，初始化列表单独测试，暂时搁一搁
+        string (1)	string& operator+= (const string& str);
+        c-string (2)	string& operator+= (const char* s);
+        character (3)	string& operator+= (char c);
+        initializer list (4)	string& operator+= (initializer_list<char> il);
     append	     Append to string (public member function )
     push_back    Append character to string (public member function )
     assign	       Assign content to string (public member function )

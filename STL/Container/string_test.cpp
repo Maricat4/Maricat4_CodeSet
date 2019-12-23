@@ -164,6 +164,17 @@ void stringElementAcess(){
         cout<<*it2<<",";
     }
 }
+//字符串的修改
+void stringModifiers(){
+    string s0("inf");
+    string s1(2,'b');
+    s0+='a';
+    s0+=s1;
+    s0+="ccc";
+    s0+={'d','d','d'};
+    showT(s0,"s0=");
+    
+}
 //string测试
 void stringtest(){
     //自定义basic_string<T>
@@ -181,6 +192,10 @@ void stringtest(){
 }
 }
 #pragma endregion
+
+
+
+
 
 #pragma region 各类小测试
 namespace tests{
