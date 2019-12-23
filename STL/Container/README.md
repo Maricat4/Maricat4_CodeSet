@@ -14,7 +14,8 @@ string相当于basic_string<char>,其中basic_string<T>为字符串模板类，�
     //构造n个c
     fill (6)	            string (size_t n, char c);
     //根据迭代器构造一个string，尝试使用过list迭代器初始化，显示无匹配的构造函数
-    //而使用vector的迭代器是可以初始化string
+    //而使用vector的迭代器是可以初始化string，文档中的对于InputIterator的要求，它指向可转
+    //换为char类型的数据
     range (7)	       template <class InputIterator>
                 string  (InputIterator first, InputIterator last);
     initializer list (8)    string (initializer_list<char> il);
@@ -51,4 +52,15 @@ string相当于basic_string<char>,其中basic_string<T>为字符串模板类，�
     crend  	Return const_reverse_iterator to reverse end (public member function )
     
 ```
-
+```C++
+3.字符串的修改
+    operator+= 	Append to string (public member function )
+    append	     Append to string (public member function )
+    push_back    Append character to string (public member function )
+    assign	       Assign content to string (public member function )
+    insert	        Insert into string (public member function )
+    erase	      Erase characters from string (public member function )
+    replace          Replace portion of string (public member function )
+    swap 	      Swap string values (public member function )
+    pop_back      Delete last character (public member function )
+```
