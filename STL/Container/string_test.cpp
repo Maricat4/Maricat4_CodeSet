@@ -168,12 +168,44 @@ void stringElementAcess(){
 void stringModifiers(){
     string s0("inf");
     string s1(2,'b');
+    string s2("append");
     s0+='a';
     s0+=s1;
     s0+="ccc";
-    s0+={'d','d','d'};
+    //s0+={26,26,26};
     showT(s0,"s0=");
+
     
+    s2.append(string("str+"));
+    s2.append(string("str+"),0,1);
+    s2.append("cstr+");
+    s2.append("cstr+",4);
+    s2.append(3,'f');
+    s2.append(s0.begin(),s0.end());
+    try
+    {
+        //有问题的操作
+        s2.append({"str1qqqq","str"});
+        //正常操作
+        s2.append({'a','a','x'});
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    showT(s2,"s2=");
+
+    //push_back
+    s0.push_back('z');
+    showT(s0,"s0(push_back(z))=");
+    //pop_back
+    s0.pop_back();
+    showT(s0,"s0(pop_back)=");
+    cout<<(long long)s0.data()<<endl;
+    cout<<(long long)s1.data()<<endl;
+    cout<<(long long)s2.data()<<endl;
+    s0.assign(string("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+    cout<<(long long)s0.data()<<endl;
 }
 //string测试
 void stringtest(){
@@ -188,7 +220,10 @@ void stringtest(){
     //stringoperator::stringCapacity1();
 
     //string元素访问
-    stringElementAcess();
+    //stringElementAcess();
+    
+    //string修改
+    stringModifiers();
 }
 }
 #pragma endregion
@@ -219,6 +254,7 @@ void test0(){
 
 #pragma endregion
 int main(){
+    
 {
     stringoperator::stringtest();
 
