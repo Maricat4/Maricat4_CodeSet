@@ -2,7 +2,8 @@
 #ifndef PCH_H
 #define PCH_H
 
-// TODO: 娣诲姞瑕佸湪姝ゅ棰勭紪璇戠殑鏍囧ご
+// TODO: 添加要在此处预编译的标头
+#include "Windows.h"
 #include <iostream>
 #include<opencv2/opencv.hpp>
 #include<string>

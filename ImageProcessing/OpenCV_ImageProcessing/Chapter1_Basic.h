@@ -10,16 +10,16 @@ public:
 	};
 	Chapter1_Basic();
 	~Chapter1_Basic();
-	//ï¿½ï¿½ï¿½Ö²ï¿½Í¬ï¿½Ä²ï¿½Öµï¿½ï¿½Ê½
-	//Ê¹ï¿½Ã½ï¿½Ğ¡ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½Å´ï¿½Ï´ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶Ô±ï¿½
+	//?????????????
+	//????§³??????????????????§Ò??????????
 	//
 	static void ResizeImg(std::string s1,float x,float y);
-	// ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Î±ä»»
+	// ????????¦ÁÈÎ
 	static void NonLinearTransform(std::string src);
-	// VoronoiÍ¼
+	// Voronoi?
 	static void Voronoi(std::string src);
 	static Node minNode(Node C[20], Node test);
-	// ï¿½ï¿½ï¿½ï¿½ï¿½	
+	// ?????	
 	static void ResizeJ(const std::string &src);
 };
 
@@ -42,23 +42,23 @@ void Chapter1_Basic::ResizeImg(string s1,float x,float y)
 {
 	Mat src = imread(s1);
 	Mat dst(src.size().width*x, src.size().height*y,src.type());
-	imshow("åŸå§‹å›¾åƒ", src);
+	imshow("Ô­Ê¼Í¼Ïñ", src);
 	resize(src, dst, dst.size(), x, y, 0);
-	imshow("æœ€è¿‘é‚»æ’å€¼", dst);
+	imshow("×î½üÁÚ²åÖµ", dst);
 	resize(src, dst, dst.size(), x, y, 1);
-	imshow("åŒçº¿æ€§æ’å€¼", dst);
+	imshow("Ë«ÏßĞÔ²åÖµ", dst);
 	resize(src, dst, dst.size(), x, y, 2);
-	imshow("åŒä¸‰æ¬¡æ’å€¼", dst);
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	imshow("Ë«Èı´Î²åÖµ", dst);
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 }
 
 
-// éçº¿æ€§å‡ ä½•å˜æ¢
+// ·ÇÏßĞÔ¼¸ºÎ±ä»»
 void Chapter1_Basic::NonLinearTransform(string s1)
 {
 	Mat src = imread(s1, 0);
 	Mat dst = Mat::zeros(src.size(), CV_8SC1);
-	imshow("åŸå›¾åƒ",src);
+	imshow("Ô­Í¼Ïñ",src);
 	for (int i = src.rows / 2; i < src.rows; i++)
 	{
 		for (int j = src.cols / 2; j < src.cols; j++)
@@ -69,12 +69,12 @@ void Chapter1_Basic::NonLinearTransform(string s1)
 }
 
 
-// Voronoiå›¾
+// VoronoiÍ¼
 void Chapter1_Basic::Voronoi(string src)
 {
 	Mat A = imread(src, 1);
 	Mat B = A.clone();
-	imshow("åŸå›¾åƒ", A);
+	imshow("Ô­Í¼Ïñ", A);
 	//map<Node, Scalar> mapColor;
 	int count = 1000;
 	Node nodeC[1000];
@@ -95,7 +95,7 @@ void Chapter1_Basic::Voronoi(string src)
 			B.at<Vec3b>(i, j) = A.at<Vec3b>(temp.x,temp.y);
 		}
 	}
-	imshow("Voronoiå›¾", B);
+	imshow("VoronoiÍ¼", B);
 
 	cout << A.rows*A.cols;
 }
@@ -104,7 +104,7 @@ void Chapter1_Basic::Voronoi(string src)
 // Voronoi
 Chapter1_Basic::Node Chapter1_Basic::minNode(Chapter1_Basic::Node C[20], Chapter1_Basic::Node test)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	int min = 0x7fffffff;
 	int t = 0;
 	int index = 0;
@@ -124,18 +124,18 @@ Chapter1_Basic::Node Chapter1_Basic::minNode(Chapter1_Basic::Node C[20], Chapter
 }
 
 
-// æ°å°¼é¾Ÿ
+// ½ÜÄá¹ê
 void Chapter1_Basic::ResizeJ(const std::string &src)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat	A = imread(src);
-	imshow("æ°å°¼é¾Ÿ",A);
-	cout << "è¡Œï¼š" << A.rows<<endl;
-	cout <<"åˆ—ï¼š"<< A.cols << endl;
-	cout <<"å›¾åƒç±»å‹"<< A.type() << endl;
+	imshow("½ÜÄá¹ê",A);
+	cout << "ĞĞ£º" << A.rows<<endl;
+	cout <<"ÁĞ£º"<< A.cols << endl;
+	cout <<"Í¼ÏñÀàĞÍ"<< A.type() << endl;
 	
 	/*boxFilter(A, A, 24, Size(15, 15));
-	imshow("å¹³æ»‘æ°å°¼é¾Ÿ", A);
+	imshow("Æ½»¬½ÜÄá¹ê", A);
 	vector<Mat> m;
 	split(A, m);
 	imshow("B", m[0]);
@@ -149,9 +149,9 @@ void Chapter1_Basic::ResizeJ(const std::string &src)
 	imshow("R1", m[2]);
 
 	merge(m, A);
-	imshow("å¹³æ»‘æ°å°¼é¾Ÿ1", A);*/
+	imshow("Æ½»¬½ÜÄá¹ê1", A);*/
 	resize(A, A, Size(1080, 1080), 0, 0, 2);
-	imshow("å¹³æ»‘æ°å°¼é¾Ÿ2", A);
+	imshow("Æ½»¬½ÜÄá¹ê2", A);
 	//for (int i = 0; i < 3; i++)
 	//{
 	//	Mat bgr(img.rows, img.cols, CV_8UC3, Scalar(0, 0, 0));
@@ -159,23 +159,23 @@ void Chapter1_Basic::ResizeJ(const std::string &src)
 	//	Mat out[] = { bgr };
 	//	int from_to[] = { i,i };
 	//	mixChannels(&img, 1, out, 1, from_to, 1);
-	//	//è·å¾—å…¶ä¸­ä¸€ä¸ªé€šé“çš„æ•°æ®è¿›è¡Œåˆ†æ
+	//	//»ñµÃÆäÖĞÒ»¸öÍ¨µÀµÄÊı¾İ½øĞĞ·ÖÎö
 	//	imshow("1 channel", bgr);
 	//	waitKey();
 	//}
 	/*equalizeHist(A, A);
-	imshow("å‡è¡¡å¹³æ»‘æ°å°¼é¾Ÿ", A);*/
+	imshow("¾ùºâÆ½»¬½ÜÄá¹ê", A);*/
 
 	/*Mat dst,dst1;
 	Sobel(A, dst, CV_16SC4, 1, 0);
 	convertScaleAbs(dst, dst);
-	imshow("Sobel_xå›¾åƒ", dst);
+	imshow("Sobel_xÍ¼Ïñ", dst);
 	Sobel(A, dst1, CV_16SC4, 0, 1);
 	convertScaleAbs(dst1, dst1);
-	imshow("Sobel_yåŸå›¾åƒ", dst1);
+	imshow("Sobel_yÔ­Í¼Ïñ", dst1);
 
 	addWeighted(dst, 0.5, dst1, 0.5, 0, dst);
-	imshow("Sobel_(x+y)åŸå›¾åƒ", dst);*/
+	imshow("Sobel_(x+y)Ô­Í¼Ïñ", dst);*/
 }
 
 

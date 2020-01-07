@@ -1,5 +1,5 @@
 #pragma once
-#pragma region ç¬¬å››ç« å›¾åƒåˆ†å‰²
+#pragma region µÚËÄÕÂÍ¼Ïñ·Ö¸î
 #include "pch.h"
 #include <math.h>
 #include "opencv2/imgproc/imgproc.hpp"
@@ -13,13 +13,13 @@ private:
 	static int Control;
 	static bool ControlLine;
 public:
-	//å“ˆå¤«å˜æ¢
+	//¹ş·ò±ä»»
 	static Mat& HoughW(Mat&);
 	
 	static Mat& Harr(Mat&);
-	//æ§åˆ¶çª—å£å›è°ƒå‡½æ•°
+	//¿ØÖÆ´°¿Ú»Øµ÷º¯Êı
 	static void On_threshold(int,void*);
-	//butonå›è°ƒ
+	//buton»Øµ÷
 	static void On_ClickButton(int,void*);
 };
 Mat Chapter4::dst = Mat::zeros(Size(50,50),CV_8UC1);
@@ -27,10 +27,10 @@ Mat Chapter4::img = Mat::zeros(Size(50,50),CV_8UC1);
 Mat Chapter4::imgSRC = Mat::zeros(Size(50,50),CV_8UC1);
 int Chapter4::Control = 0;
 bool Chapter4::ControlLine = false;
-//ç›´çº¿çš„æ£€æµ‹
+//Ö±ÏßµÄ¼ì²â
 //x	cos a + y sin a = r
 Mat& Chapter4::HoughW(Mat &src){
-	//è¡Œåˆ—ä¿¡æ¯
+	//ĞĞÁĞĞÅÏ¢
 	int cols = src.cols;
 	int rows = src.rows;
 	float a = 0,r = 0;
@@ -39,7 +39,7 @@ Mat& Chapter4::HoughW(Mat &src){
 	
 	Mat src1 = Mat::zeros(Size(src.rows*1.5,src.cols*1.5),CV_8UC1);
 	int rindex = 0;
-	imshow("å“ˆå¤«å˜æ¢åŸå›¾",src);
+	imshow("¹ş·ò±ä»»Ô­Í¼",src);
 	Mat _sobel_x_src,_sobel_y_src;
 	Sobel(src,_sobel_x_src,CV_16SC1,1,0);
 	convertScaleAbs(_sobel_x_src,_sobel_x_src);
@@ -48,7 +48,7 @@ Mat& Chapter4::HoughW(Mat &src){
 	addWeighted(_sobel_x_src,0.5,_sobel_y_src,0.5,0,src);
 	//Canny(src,src,0,255);
 
-	imshow("è¾¹ç¼˜æå–",src);
+	imshow("±ßÔµÌáÈ¡",src);
 	//cout<<src<<endl;
 	int num = 0;
 	for (size_t x = 0; x < cols; x++)
@@ -74,7 +74,7 @@ Mat& Chapter4::HoughW(Mat &src){
 	cout<<num<<endl;
 	//cout<<src1<<endl;
 	src1.convertTo(img,CV_8UC1);
-	imshow("æœªç»ç›´æ–¹å›¾å‡è¡¡åŒ–è¿‡çš„å“ˆå¤«å˜æ¢",img);
+	imshow("Î´¾­Ö±·½Í¼¾ùºâ»¯¹ıµÄ¹ş·ò±ä»»",img);
 	imgSRC = img.clone();
 	//equalizeHist(img,img);
 	//Mat dst1;
@@ -107,25 +107,25 @@ Mat& Chapter4::HoughW(Mat &src){
 
 	
 	
-	imshow("å±€éƒ¨ç›´æ–¹å›¾å‡è¡¡åŒ–è¿‡çš„å“ˆå¤«å˜æ¢",img);	
-	//imshow("å…¨å±€ç›´æ–¹å›¾å‡è¡¡åŒ–è¿‡çš„å“ˆå¤«å˜æ¢",dst1);	
-	//é˜ˆå€¼åŒ–
+	imshow("¾Ö²¿Ö±·½Í¼¾ùºâ»¯¹ıµÄ¹ş·ò±ä»»",img);	
+	//imshow("È«¾ÖÖ±·½Í¼¾ùºâ»¯¹ıµÄ¹ş·ò±ä»»",dst1);	
+	//ãĞÖµ»¯
 	//threshold(src1,src1,120,255,THRESH_BINARY);
 	Control = 0;
-	namedWindow("å“ˆå¤«å˜æ¢é˜ˆå€¼åŒ–",WINDOW_AUTOSIZE);
-	createTrackbar("é˜ˆå€¼","å“ˆå¤«å˜æ¢é˜ˆå€¼åŒ–",&Control,255,On_threshold);
+	namedWindow("¹ş·ò±ä»»ãĞÖµ»¯",WINDOW_AUTOSIZE);
+	createTrackbar("ãĞÖµ","¹ş·ò±ä»»ãĞÖµ»¯",&Control,255,On_threshold);
 	int ANS = 0;
-	createTrackbar("å¯»æ‰¾çº¿","å“ˆå¤«å˜æ¢é˜ˆå€¼åŒ–",&ANS,1,On_ClickButton);
+	createTrackbar("Ñ°ÕÒÏß","¹ş·ò±ä»»ãĞÖµ»¯",&ANS,1,On_ClickButton);
 	On_threshold(0,0);
 	// //cout<<src1<<endl;  
-	// imshow("å“ˆå¤«å˜æ¢åŸå›¾",src);
+	// imshow("¹ş·ò±ä»»Ô­Í¼",src);
 	
 	
 
 
 }
 Mat& Chapter4::Harr(Mat &src){
-	//è¡Œåˆ—ä¿¡æ¯
+	//ĞĞÁĞĞÅÏ¢
 	int cols = src.cols;
 	int rows = src.rows;
 
@@ -135,12 +135,12 @@ Mat& Chapter4::Harr(Mat &src){
 void Chapter4::On_threshold(int, void *){
 	
 	threshold(img,dst,Control,255,0);
-	imshow("å“ˆå¤«å˜æ¢é˜ˆå€¼åŒ–",dst);
+	imshow("¹ş·ò±ä»»ãĞÖµ»¯",dst);
 	Mat src1 = imgSRC.clone();
 	Mat roi = src1(Rect(0,0,dst.cols,dst.rows));
 	src1.copyTo(roi,dst);
 	imshow("imgsrc",imgSRC);
-	imshow("å åŠ ",src1);
+	imshow("µş¼Ó",src1);
 	vector<Point2i> points;
 	if(ControlLine){
 		// for (size_t i = 0; i < dst.; i++)

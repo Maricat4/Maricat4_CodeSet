@@ -7,47 +7,47 @@ public:
 	Chapter3();
 	~Chapter3();
 
-	// å›¾åƒçš„ç°åº¦å˜æ¢
+	// Í¼ÏñµÄ»Ò¶È±ä»»
 	static void GrayTransform(std::string src);
-	// åˆ†æ®µçº¿æ€§å˜æ¢å‡½æ•°
+	// ·Ö¶ÎÏßĞÔ±ä»»º¯Êı
 	static void SegmentationGrayTrans(std::string src);
-	// ç°åº¦çº§åˆ†å±‚
+	// »Ò¶È¼¶·Ö²ã
 	static void GrayScaleLayering(std::string filename);
-	// æ¯”ç‰¹å¹³é¢åˆ†å±‚
+	// ±ÈÌØÆ½Ãæ·Ö²ã
 	static void BitPlaneLayering(std::string filename);
-	// åˆ¤æ–­ç°åº¦çº§åˆ†å±‚
+	// ÅĞ¶Ï»Ò¶È¼¶·Ö²ã
 	static bool BitLevelJudge(uchar gray, int layer);
-	// ç›´æ–¹å›¾å‡è¡¡åŒ–
+	// Ö±·½Í¼¾ùºâ»¯
 	static void HistogramEqualization(std::string filename);
-	// æ˜¾ç¤ºå›¾åƒçš„ç›´æ–¹å›¾
+	// ÏÔÊ¾Í¼ÏñµÄÖ±·½Í¼
 	static void VisualizationHist(std::string filename);
-	// ä¸ºMatç”»ç°åº¦å›¾ï¼Œå¿…é¡»æ˜¯å•é€šé“ç°åº¦å›¾æ‰å¯ä»¥
+	// ÎªMat»­»Ò¶ÈÍ¼£¬±ØĞëÊÇµ¥Í¨µÀ»Ò¶ÈÍ¼²Å¿ÉÒÔ
 	static void VisualizationHistForMat(cv::Mat mat,std::string windowname);
-	// ç›´æ–¹å›¾åŒ¹é…ï¼ˆç›´æ–¹å›¾è§„å®šåŒ–ï¼‰
+	// Ö±·½Í¼Æ¥Åä£¨Ö±·½Í¼¹æ¶¨»¯£©
 	static void HistogramMatching(std::string filename1,std::string filename2);
-	// å±€éƒ¨ç›´æ–¹å›¾å¤„ç†
+	// ¾Ö²¿Ö±·½Í¼´¦Àí
 	static void LocalHistogramEqualization(std::string filename);
-	// ä½¿ç”¨ç›´æ–¹å›¾ç»Ÿè®¡å±€éƒ¨å¢å¼º
+	// Ê¹ÓÃÖ±·½Í¼Í³¼Æ¾Ö²¿ÔöÇ¿
 	static void HistogramStatistics(std::string filename);
-	// è®¡ç®—Matçš„å‡å€¼ä¸æ–¹å·®
+	// ¼ÆËãMatµÄ¾ùÖµÓë·½²î
 	static void CalcMeanAndVariance(cv::Mat A, double& mean, double& Variance);
-	// å¹³æ»‘æ»¤æ³¢å™¨
+	// Æ½»¬ÂË²¨Æ÷
 	static void SmoothingFilter(std::string filename,std::string filename1);
-	// è‡ªå·±ç¼–å†™çš„æ»¤æ³¢å™¨ä»£ç æ®µ
+	// ×Ô¼º±àĞ´µÄÂË²¨Æ÷´úÂë¶Î
 	static void SmoothingFilterByOwn(cv::Mat A, cv::Mat &dst, cv::Size ksize);
-	// ç»Ÿè®¡æ’åºæ»¤æ³¢å™¨-ä¸­å€¼æ»¤æ³¢
+	// Í³¼ÆÅÅĞòÂË²¨Æ÷-ÖĞÖµÂË²¨
 	static void MedianFilter(std::string filename);
-	// é”åŒ–æ»¤æ³¢å™¨-æ‹‰æ™®æ‹‰æ–¯ç®—å­
+	// Èñ»¯ÂË²¨Æ÷-À­ÆÕÀ­Ë¹Ëã×Ó
 	static void SharpeningFilterLaplaceOperator(std::string filename);
-	// æ‹‰æ™®æ‹‰æ–¯ç®—å­
+	// À­ÆÕÀ­Ë¹Ëã×Ó
 	static void LaplaceOperator(cv::Mat A, cv::Mat &dst, cv::Mat &dst1);
-	// éé”åŒ–æ»¤æ³¢ä»¥åŠé«˜æå‡æ»¤æ³¢
+	// ·ÇÈñ»¯ÂË²¨ÒÔ¼°¸ßÌáÉıÂË²¨
 	static void NonShrpeningAndHighBoost(std::string filename);
-	// Sobelç®—å­
+	// SobelËã×Ó
 	static void SobelOperator();
-	// é”åŒ–æ»¤æ³¢å™¨-Sobelç®—å­
+	// Èñ»¯ÂË²¨Æ÷-SobelËã×Ó
 	static void SharpeningFilterSobelOperator(std::string filename);
-	// æ··åˆç©ºé—´å¢å¼º
+	// »ìºÏ¿Õ¼äÔöÇ¿
 	static void CombiningSpatialEnhancement(std::string filename);
 };
 
@@ -65,16 +65,16 @@ Chapter3::~Chapter3()
 }
 
 
-// å›¾åƒçš„ç°åº¦å˜æ¢,å›¾åƒåè½¬ï¼Œå¯¹æ•°å˜æ¢ï¼Œä¼½é©¬å˜æ¢
+// Í¼ÏñµÄ»Ò¶È±ä»»,Í¼Ïñ·´×ª£¬¶ÔÊı±ä»»£¬Ù¤Âí±ä»»
 void Chapter3::GrayTransform(std::string src)
 {
-	Mat Src = imread(src);// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	Mat Src = imread(src);// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat Src1;
 	Mat Src_1(Src.size(), CV_8UC1, Scalar(0));
 	Mat Src_2(Src.size(), CV_8UC1, Scalar(0));
 	Mat Src_3(Src.size(), CV_8UC1, Scalar(0));
 	cvtColor(Src, Src1, CV_BGR2GRAY);
-	imshow("åŸå§‹å›¾åƒ", Src);
+	imshow("Ô­Ê¼Í¼Ïñ", Src);
 	if (Src1.type() == 0 && Src1.channels() == 1) {
 		for (int i = 0; i < Src1.rows; i++)
 		{
@@ -85,29 +85,29 @@ void Chapter3::GrayTransform(std::string src)
 				Src_3.at<uchar>(i, j) = pow(Src1.at<uchar>(i, j),3) / pow(255,3) * 255;
 			}
 		}
-		imshow("åè½¬åçš„å›¾åƒ", Src_1);
-		imshow("å¯¹æ•°å˜æ¢åçš„å›¾åƒ", Src_2);
-		imshow("ä¼½é©¬å˜æ¢åçš„å›¾åƒ", Src_3);
+		imshow("·´×ªºóµÄÍ¼Ïñ", Src_1);
+		imshow("¶ÔÊı±ä»»ºóµÄÍ¼Ïñ", Src_2);
+		imshow("Ù¤Âí±ä»»ºóµÄÍ¼Ïñ", Src_3);
 	}
 	else {
-		cout << "éç°åº¦å›¾";
+		cout << "·Ç»Ò¶ÈÍ¼";
 	}
 	
 	
 }
 
 
-// åˆ†æ®µçº¿æ€§å˜æ¢å‡½æ•°
+// ·Ö¶ÎÏßĞÔ±ä»»º¯Êı
 void Chapter3::SegmentationGrayTrans(std::string src)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat A= imread(src,0);
 	Mat Src,Src1;
 	if (A.channels() == 3)
 		cvtColor(A, Src, CV_BGR2GRAY);
 	else Src = A.clone();
 	Src1 = Src.clone();
-	imshow("åŸå§‹å›¾åƒ",Src);
+	imshow("Ô­Ê¼Í¼Ïñ",Src);
 	uchar min = 255;
 	uchar max = 0;
 	uchar aver;
@@ -121,15 +121,15 @@ void Chapter3::SegmentationGrayTrans(std::string src)
 			average += (float) Src.at<uchar>(i, j)/(Src.rows * Src.cols);
 		}
 	}
-	cout << "æœ€å°ç°åº¦å€¼"<< (int)min<<endl;
-	cout << "æœ€å¤§ç°åº¦å€¼"<< (int)max<<endl;
+	cout << "×îĞ¡»Ò¶ÈÖµ"<< (int)min<<endl;
+	cout << "×î´ó»Ò¶ÈÖµ"<< (int)max<<endl;
 	aver = (uchar)average;
 	for (int i = 0; i < Src.rows; i++)
 	{
 		for (int j = 0; j < Src.cols; j++)
 		{
 			if(Src.at<uchar>(i, j)>=min && Src.at<uchar>(i, j) <= max)
-			//å€¼å¾—æ³¨æ„çš„åœ°æ–¹
+			//ÖµµÃ×¢ÒâµÄµØ·½
 			//Src.at<uchar>(i, j) = (((float)255 / (max - min)) * Src.at<uchar>(i, j) + (float)255 * min / (min - max));
 			Src.at<uchar>(i, j) = 255 / (max - min) * (Src.at<uchar>(i, j)-min);
 			else Src.at<uchar>(i, j) = 0;
@@ -137,18 +137,18 @@ void Chapter3::SegmentationGrayTrans(std::string src)
 			else Src1.at<uchar>(i, j) = 0;
 		}
 	}
-	imshow("å¯¹æ¯”åº¦æ‹‰ä¼¸åçš„å›¾åƒ",Src);
-	imshow("é˜ˆå€¼å¤„ç†åçš„å›¾åƒ", Src1);
+	imshow("¶Ô±È¶ÈÀ­ÉìºóµÄÍ¼Ïñ",Src);
+	imshow("ãĞÖµ´¦ÀíºóµÄÍ¼Ïñ", Src1);
 }
 
 
-// ç°åº¦çº§åˆ†å±‚
+// »Ò¶È¼¶·Ö²ã
 void Chapter3::GrayScaleLayering(std::string filename)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat Src = imread(filename, 0);
 	Mat Src1 = Src.clone();
-	imshow("åŸå›¾åƒ",Src);
+	imshow("Ô­Í¼Ïñ",Src);
 	uchar max = 0;
 	float average = 0;
 	for (int i = 0; i < Src.rows; i++)
@@ -174,17 +174,17 @@ void Chapter3::GrayScaleLayering(std::string filename)
 			}	
 		}
 	}
-	imshow("æ³•ä¸€å›¾åƒ", Src);
-	imshow("æ³•äºŒå›¾åƒ", Src1);
+	imshow("·¨Ò»Í¼Ïñ", Src);
+	imshow("·¨¶şÍ¼Ïñ", Src1);
 }
 
 
-// æ¯”ç‰¹å¹³é¢åˆ†å±‚
+// ±ÈÌØÆ½Ãæ·Ö²ã
 void Chapter3::BitPlaneLayering(std::string filename)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat Src = imread(filename, 0);
-	imshow("åŸå›¾åƒ", Src);
+	imshow("Ô­Í¼Ïñ", Src);
 	Mat Src0[8],a,b,c;
 	for (int i = 0; i < 8; i++)
 	{
@@ -206,31 +206,31 @@ void Chapter3::BitPlaneLayering(std::string filename)
 					Src0[index].at<uchar>(i, j) = 0;
 				}
 			}
-			//åˆ©ç”¨æ¯”ç‰¹å¹³é¢é‡å»ºå›¾åƒ
+			//ÀûÓÃ±ÈÌØÆ½ÃæÖØ½¨Í¼Ïñ
 			a.at<uchar>(i, j) = Src0[6].at<uchar>(i, j)/255 * 64 + Src0[7].at<uchar>(i, j) / 255 * 128;
 			b.at<uchar>(i, j) = Src0[5].at<uchar>(i, j) / 255 * 32 + Src0[6].at<uchar>(i, j) / 255 * 64 + Src0[7].at<uchar>(i, j) / 255 * 128;
 			c.at<uchar>(i, j) = Src0[4].at<uchar>(i, j) / 255 * 16 + Src0[5].at<uchar>(i, j) / 255 * 32 + Src0[6].at<uchar>(i, j) / 255 * 64 + Src0[7].at<uchar>(i, j) / 255 * 128;
 		}
 	}
 	//threshold(Src, Src8, 127, 255, CV_THRESH_BINARY);
-	imshow("ç¬¬1æ¯”ç‰¹å¹³é¢", Src0[0]);
-	imshow("ç¬¬2æ¯”ç‰¹å¹³é¢", Src0[1]);
-	imshow("ç¬¬3æ¯”ç‰¹å¹³é¢", Src0[2]);
-	imshow("ç¬¬4æ¯”ç‰¹å¹³é¢", Src0[3]);
-	imshow("ç¬¬5æ¯”ç‰¹å¹³é¢", Src0[4]);
-	imshow("ç¬¬6æ¯”ç‰¹å¹³é¢", Src0[5]);
-	imshow("ç¬¬7æ¯”ç‰¹å¹³é¢", Src0[6]);
-	imshow("ç¬¬8æ¯”ç‰¹å¹³é¢", Src0[7]);
-	imshow("ä½¿ç”¨æ¯”ç‰¹å¹³é¢7,8é‡å»º", a);
-	imshow("ä½¿ç”¨æ¯”ç‰¹å¹³é¢6,7,8é‡å»º", b);
-	imshow("ä½¿ç”¨æ¯”ç‰¹å¹³é¢5,6,7,8é‡å»º", c);
+	imshow("µÚ1±ÈÌØÆ½Ãæ", Src0[0]);
+	imshow("µÚ2±ÈÌØÆ½Ãæ", Src0[1]);
+	imshow("µÚ3±ÈÌØÆ½Ãæ", Src0[2]);
+	imshow("µÚ4±ÈÌØÆ½Ãæ", Src0[3]);
+	imshow("µÚ5±ÈÌØÆ½Ãæ", Src0[4]);
+	imshow("µÚ6±ÈÌØÆ½Ãæ", Src0[5]);
+	imshow("µÚ7±ÈÌØÆ½Ãæ", Src0[6]);
+	imshow("µÚ8±ÈÌØÆ½Ãæ", Src0[7]);
+	imshow("Ê¹ÓÃ±ÈÌØÆ½Ãæ7,8ÖØ½¨", a);
+	imshow("Ê¹ÓÃ±ÈÌØÆ½Ãæ6,7,8ÖØ½¨", b);
+	imshow("Ê¹ÓÃ±ÈÌØÆ½Ãæ5,6,7,8ÖØ½¨", c);
 }
 
 
-// åˆ¤æ–­ç°åº¦çº§åˆ†å±‚
+// ÅĞ¶Ï»Ò¶È¼¶·Ö²ã
 bool Chapter3::BitLevelJudge(uchar gray,int layer)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	switch (layer)
 	{
 	case 0:
@@ -274,31 +274,31 @@ bool Chapter3::BitLevelJudge(uchar gray,int layer)
 }
 
 
-// ç›´æ–¹å›¾å‡è¡¡åŒ–
+// Ö±·½Í¼¾ùºâ»¯
 void Chapter3::HistogramEqualization(std::string filename)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
-	//åŸå›¾åƒ
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
+	//Ô­Í¼Ïñ
 	Mat Src = imread(filename, 0);
-	imshow("åŸå›¾åƒ", Src);
-	VisualizationHistForMat(Src,"åŸå›¾ç›´æ–¹å›¾");
-	//æ˜ å°„åçš„åƒç´ ç°åº¦å€¼
+	imshow("Ô­Í¼Ïñ", Src);
+	VisualizationHistForMat(Src,"Ô­Í¼Ö±·½Í¼");
+	//Ó³ÉäºóµÄÏñËØ»Ò¶ÈÖµ
 	float s;
-	//æœ€å¤§ç°åº¦å€¼
+	//×î´ó»Ò¶ÈÖµ
 	int L = 256;
-	//ç°åº¦çº§ç»Ÿè®¡
+	//»Ò¶È¼¶Í³¼Æ
 	Mat hist;
-	//æ˜ å°„å‡½æ•°
+	//Ó³Éäº¯Êı
 	int T[256];
-	//åƒç´ ç»Ÿè®¡
+	//ÏñËØÍ³¼Æ
 	float sum = 0;
 	int MN = Src.size().area();
-	//è®¡ç®—åŸå›¾åƒåƒç´ çš„é¢‘ç‡
-	//ç°åº¦èŒƒå›´
+	//¼ÆËãÔ­Í¼ÏñÏñËØµÄÆµÂÊ
+	//»Ò¶È·¶Î§
 	float range[] = { 0,256 };
 	const float *histRanges = { range };
 	calcHist(&Src, 1, 0, Mat(), hist, 1, &L, &histRanges, true, false);
-	//è®¡ç®—æ˜ å°„å‡½æ•°
+	//¼ÆËãÓ³Éäº¯Êı
 	for (int i = 0; i < L; i++)
 	{
 		sum += hist.at<float>(i);
@@ -313,78 +313,78 @@ void Chapter3::HistogramEqualization(std::string filename)
 			Src.at<uchar>(i, j) = T[Src.at<uchar>(i, j)];
 		}
 	}
-	imshow("å‡è¡¡åçš„å›¾åƒ", Src);
-	VisualizationHistForMat(Src,"å‡è¡¡åçš„ç›´æ–¹å›¾");
+	imshow("¾ùºâºóµÄÍ¼Ïñ", Src);
+	VisualizationHistForMat(Src,"¾ùºâºóµÄÖ±·½Í¼");
 	
 	equalizeHist(Src1, Src1);
-	imshow("OpenCV_APIå‡è¡¡åçš„å›¾åƒ", Src1);
-	VisualizationHistForMat(Src1, "OpenCV_APIå‡è¡¡åçš„ç›´æ–¹å›¾");
+	imshow("OpenCV_API¾ùºâºóµÄÍ¼Ïñ", Src1);
+	VisualizationHistForMat(Src1, "OpenCV_API¾ùºâºóµÄÖ±·½Í¼");
 }
 
 
-// æ˜¾ç¤ºå›¾åƒçš„ç›´æ–¹å›¾
+// ÏÔÊ¾Í¼ÏñµÄÖ±·½Í¼
 void Chapter3::VisualizationHist(std::string filename)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
-	//æºå›¾åƒ
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
+	//Ô´Í¼Ïñ
 	Mat Src = imread(filename, 0);
-	//ç°åº¦
-	imshow("åŸå§‹å›¾åƒ", Src);
-	//ç”¨ç¨€ç–
+	//»Ò¶È
+	imshow("Ô­Ê¼Í¼Ïñ", Src);
+	//ÓÃÏ¡Êè
 	Mat hist;
 
 	int histSize = 256;
-	//ç°åº¦èŒƒå›´
+	//»Ò¶È·¶Î§
 	float range[] = { 0,256 };
 	const float *histRanges = { range };
-	//å›¾åƒé«˜ï¼Œå®½ä»¥åŠå°çŸ©å½¢çš„å®½åº¦
+	//Í¼Ïñ¸ß£¬¿íÒÔ¼°Ğ¡¾ØĞÎµÄ¿í¶È
 	int hist_w = 512;
 	int hist_h = 400;
 	int bin_w = 2;
-	//ç›´æ–¹å›¾ç°åº¦å›¾ çŸ©é˜µ
+	//Ö±·½Í¼»Ò¶ÈÍ¼ ¾ØÕó
 	Mat histImage(hist_h, hist_w, CV_8UC1, Scalar(0, 0, 0));
-	//è®¡ç®—åŸå›¾åƒåƒç´ çš„é¢‘ç‡
+	//¼ÆËãÔ­Í¼ÏñÏñËØµÄÆµÂÊ
 	calcHist(&Src, 1, 0, Mat(), hist, 1, &histSize, &histRanges, true, false);
 	Rect a;
 	float height = 0;
-	//ç”»ç›´æ–¹å›¾çŸ©å½¢
+	//»­Ö±·½Í¼¾ØĞÎ
 	for (int i = 0; i < histSize; i++)
 	{
 		height = 10*hist_h * (hist.at<float>(i) / Src.size().area());
 		a = Rect(Point(bin_w*i,400 -height) ,Size(bin_w-1, height));
 		rectangle(histImage, a, Scalar(255, 255, 255));
 	}
-	imshow("ç›´æ–¹å›¾", histImage);
+	imshow("Ö±·½Í¼", histImage);
 }
 
 
 
-// ä¸ºMatç”»ç°åº¦å›¾ï¼Œå¿…é¡»æ˜¯å•é€šé“ç°åº¦å›¾æ‰å¯ä»¥
+// ÎªMat»­»Ò¶ÈÍ¼£¬±ØĞëÊÇµ¥Í¨µÀ»Ò¶ÈÍ¼²Å¿ÉÒÔ
 void Chapter3::VisualizationHistForMat(Mat mat,string windowname="NULL")
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
-	//æºå›¾åƒ
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
+	//Ô´Í¼Ïñ
 	Mat Src = mat;
-	//æ˜¾ç¤ºåŸå›¾
-	//imshow("åŸå§‹å›¾åƒ", Src);
-	//ç”¨ç¨€ç–
+	//ÏÔÊ¾Ô­Í¼
+	//imshow("Ô­Ê¼Í¼Ïñ", Src);
+	//ÓÃÏ¡Êè
 	Mat hist;
 
 	int histSize = 256;
-	//ç°åº¦èŒƒå›´
+	//»Ò¶È·¶Î§
 	float range[] = { 0,256 };
 	const float *histRanges = { range };
-	//å›¾åƒé«˜ï¼Œå®½ä»¥åŠå°çŸ©å½¢çš„å®½åº¦
+	//Í¼Ïñ¸ß£¬¿íÒÔ¼°Ğ¡¾ØĞÎµÄ¿í¶È
 	int hist_w = 512;
 	int hist_h = 400;
 	int bin_w = 2;
-	//ç›´æ–¹å›¾ç°åº¦å›¾ çŸ©é˜µ
+	//Ö±·½Í¼»Ò¶ÈÍ¼ ¾ØÕó
 	Mat histImage(hist_h, hist_w, CV_8UC1, Scalar(0, 0, 0));
-	//è®¡ç®—åŸå›¾åƒåƒç´ çš„é¢‘ç‡
+	//¼ÆËãÔ­Í¼ÏñÏñËØµÄÆµÂÊ
 	calcHist(&Src, 1, 0, Mat(), hist, 1, &histSize, &histRanges, true, false);
 	Rect a;
 	float height = 0;
-	//ç”»ç›´æ–¹å›¾çŸ©å½¢
+	//»­Ö±·½Í¼¾ØĞÎ
 	for (int i = 0; i < histSize; i++)
 	{
 		height = 10 * hist_h * (hist.at<float>(i) / Src.size().area());
@@ -396,21 +396,21 @@ void Chapter3::VisualizationHistForMat(Mat mat,string windowname="NULL")
 }
 
 
-// ç›´æ–¹å›¾åŒ¹é…ï¼ˆç›´æ–¹å›¾è§„å®šåŒ–ï¼‰
+// Ö±·½Í¼Æ¥Åä£¨Ö±·½Í¼¹æ¶¨»¯£©
 void Chapter3::HistogramMatching(std::string filename1, ::string filename2)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat Src = imread(filename1, 0);
 	Mat Target = imread(filename2, 0);
-	imshow("åŸå›¾åƒ", Src);
-	imshow("éœ€è¦åŒ¹é…çš„ç›´æ–¹å›¾å›¾åƒ", Target);
-	VisualizationHistForMat(Src, "åŸå›¾åƒçš„ç›´æ–¹å›¾");
-	VisualizationHistForMat(Target, "éœ€è¦åŒ¹é…çš„ç›´æ–¹å›¾å›¾åƒç›´æ–¹å›¾");
+	imshow("Ô­Í¼Ïñ", Src);
+	imshow("ĞèÒªÆ¥ÅäµÄÖ±·½Í¼Í¼Ïñ", Target);
+	VisualizationHistForMat(Src, "Ô­Í¼ÏñµÄÖ±·½Í¼");
+	VisualizationHistForMat(Target, "ĞèÒªÆ¥ÅäµÄÖ±·½Í¼Í¼ÏñÖ±·½Í¼");
 
-	//ç¬¬ä¸€æ­¥ ç›´æ–¹å›¾å‡è¡¡åŒ–
+	//µÚÒ»²½ Ö±·½Í¼¾ùºâ»¯
 	equalizeHist(Src, Src);
 	Mat hist;
-	//ç°åº¦èŒƒå›´
+	//»Ò¶È·¶Î§
 	float range[] = { 0,256 };
 	const float *histRanges = { range };
 	int histSize = 256;
@@ -422,7 +422,7 @@ void Chapter3::HistogramMatching(std::string filename1, ::string filename2)
 	float z;
 	int MN = Target.size().area();
 	int G[256];
-	//è®¡ç®—æ˜ å°„å‡½æ•°
+	//¼ÆËãÓ³Éäº¯Êı
 	for (int i = 0; i < histSize; i++)
 	{
 		sum += hist.at<float>(i);
@@ -455,22 +455,22 @@ void Chapter3::HistogramMatching(std::string filename1, ::string filename2)
 			Src.at<uchar>(i, j) = S[Src.at<uchar>(i, j)];
 		}
 	}
-	imshow("åŒ¹é…åçš„å›¾åƒ", Src);
-	VisualizationHistForMat(Src, "åŒ¹é…åå›¾åƒçš„ç›´æ–¹å›¾");
+	imshow("Æ¥ÅäºóµÄÍ¼Ïñ", Src);
+	VisualizationHistForMat(Src, "Æ¥ÅäºóÍ¼ÏñµÄÖ±·½Í¼");
 }
 
 
-// å±€éƒ¨ç›´æ–¹å›¾å¤„ç†
+// ¾Ö²¿Ö±·½Í¼´¦Àí
 void Chapter3::LocalHistogramEqualization(string filename)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat Src = imread(filename, 0);
 	Mat Src_hist(Src.size(),Src.type());
-	imshow( "åŸå›¾åƒ", Src);
-	VisualizationHistForMat(Src,"åŸå›¾åƒçš„ç°åº¦å›¾");
+	imshow( "Ô­Í¼Ïñ", Src);
+	VisualizationHistForMat(Src,"Ô­Í¼ÏñµÄ»Ò¶ÈÍ¼");
 	equalizeHist(Src, Src_hist);
-	imshow("ç›´æ–¹å›¾å‡è¡¡åŒ–å›¾åƒ", Src_hist);
-	VisualizationHistForMat(Src_hist, "ç›´æ–¹å›¾å‡è¡¡åŒ–å›¾åƒçš„ç°åº¦å›¾");
+	imshow("Ö±·½Í¼¾ùºâ»¯Í¼Ïñ", Src_hist);
+	VisualizationHistForMat(Src_hist, "Ö±·½Í¼¾ùºâ»¯Í¼ÏñµÄ»Ò¶ÈÍ¼");
 	
 	Mat temp(Size(5,5), Src.type());
 	for (int i = 0; i < Src.rows - 5; i++)
@@ -496,24 +496,24 @@ void Chapter3::LocalHistogramEqualization(string filename)
 		}
 	}
 	//return;
-	imshow("å±€éƒ¨ç›´æ–¹å›¾å‡è¡¡åŒ–å›¾åƒ", Src);
-	VisualizationHistForMat(Src, "å±€éƒ¨ç›´æ–¹å›¾å‡è¡¡åŒ–å›¾åƒçš„ç°åº¦å›¾");
+	imshow("¾Ö²¿Ö±·½Í¼¾ùºâ»¯Í¼Ïñ", Src);
+	VisualizationHistForMat(Src, "¾Ö²¿Ö±·½Í¼¾ùºâ»¯Í¼ÏñµÄ»Ò¶ÈÍ¼");
 
 }
 
 
-// ä½¿ç”¨ç›´æ–¹å›¾ç»Ÿè®¡å±€éƒ¨å¢å¼º
+// Ê¹ÓÃÖ±·½Í¼Í³¼Æ¾Ö²¿ÔöÇ¿
 void Chapter3::HistogramStatistics(std::string filename)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat Src = imread(filename, 0);
 	Mat Src_hist;
-	imshow("åŸå›¾åƒ", Src);
-	VisualizationHistForMat(Src, "åŸå›¾åƒç›´æ–¹å›¾");
+	imshow("Ô­Í¼Ïñ", Src);
+	VisualizationHistForMat(Src, "Ô­Í¼ÏñÖ±·½Í¼");
 	equalizeHist(Src, Src_hist);
-	imshow("å…¨å±€ç›´æ–¹å›¾å‡è¡¡", Src_hist);
-	VisualizationHistForMat(Src_hist, "å…¨å±€ç›´æ–¹å›¾å‡è¡¡ç›´æ–¹å›¾");
-	//å…¨å±€å¹³å‡ç°åº¦å€¼ä»¥åŠå…¨å±€ç°åº¦æ–¹å·®
+	imshow("È«¾ÖÖ±·½Í¼¾ùºâ", Src_hist);
+	VisualizationHistForMat(Src_hist, "È«¾ÖÖ±·½Í¼¾ùºâÖ±·½Í¼");
+	//È«¾ÖÆ½¾ù»Ò¶ÈÖµÒÔ¼°È«¾Ö»Ò¶È·½²î
 	double m = 0,s2 = 0;
 	for (int i = 0; i < Src.rows; i++)
 	{
@@ -534,7 +534,7 @@ void Chapter3::HistogramStatistics(std::string filename)
 	s2 = s2 / Src.size().area();
 	s2 = pow(s2,0.5);
 	Mat Src1 = Src.clone();
-	//éå†åŒºåŸŸ
+	//±éÀúÇøÓò
 	Mat temp(Size(3, 3), CV_8UC1);
 	double  k1 = 0.02, k2 = 0.4, k0 = 0.4;
 	int E = 4;
@@ -552,7 +552,7 @@ void Chapter3::HistogramStatistics(std::string filename)
 			}
 			mean = 0;
 			Variance = 0;
-			//è®¡ç®—åŒºåŸŸçš„å‡å€¼ä¸æ–¹å·®
+			//¼ÆËãÇøÓòµÄ¾ùÖµÓë·½²î
 			CalcMeanAndVariance(temp, mean, Variance);
 			if (mean <= (k0 * m) && Variance >= (k1 * s2) && Variance <= (k2 * s2)) {
 				Src1.at<uchar>(i, j) = E * Src.at<uchar>(i, j);
@@ -561,15 +561,15 @@ void Chapter3::HistogramStatistics(std::string filename)
 		}
 		
 	}
-	imshow("ç›´æ–¹å›¾ç»Ÿè®¡å¢å¼º", Src1);
-	VisualizationHistForMat(Src1,"ç›´æ–¹å›¾ç»Ÿè®¡å¢å¼ºç›´æ–¹å›¾");
+	imshow("Ö±·½Í¼Í³¼ÆÔöÇ¿", Src1);
+	VisualizationHistForMat(Src1,"Ö±·½Í¼Í³¼ÆÔöÇ¿Ö±·½Í¼");
 }
 
 
-// è®¡ç®—Matçš„å‡å€¼ä¸æ–¹å·®
+// ¼ÆËãMatµÄ¾ùÖµÓë·½²î
 void Chapter3::CalcMeanAndVariance(cv::Mat A, double& mean, double& Variance)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	double sum = 0;
 	for (int i = 0; i < A.rows; i++)
 	{
@@ -581,7 +581,7 @@ void Chapter3::CalcMeanAndVariance(cv::Mat A, double& mean, double& Variance)
 		sum = 0;*/
 	}
 	mean = mean / 9.0;
-	//cout <<"å‡å€¼ï¼š" <<mean<<endl;
+	//cout <<"¾ùÖµ£º" <<mean<<endl;
 	
 	for (int i = 0; i < A.rows; i++)
 	{
@@ -594,55 +594,55 @@ void Chapter3::CalcMeanAndVariance(cv::Mat A, double& mean, double& Variance)
 	}
 	Variance = Variance / 9.0;
 	Variance = pow(Variance,0.5);
-	//cout << "æ–¹å·®ï¼š" << Variance << endl;
+	//cout << "·½²î£º" << Variance << endl;
 	
 }
 
 
-// å¹³æ»‘æ»¤æ³¢å™¨
+// Æ½»¬ÂË²¨Æ÷
 void Chapter3::SmoothingFilter(std::string filename,std::string filename1)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat src = imread(filename, 0);
 	Mat src1 = imread(filename1, 0);
-	imshow("åŸå›¾åƒ",src);
+	imshow("Ô­Í¼Ïñ",src);
 	Mat dst;
 	boxFilter(src, dst,src.depth(),Size(3,3));
-	imshow("3x3æ–¹å½¢å‡å€¼æ»¤æ³¢åŸå›¾åƒ", dst);
+	imshow("3x3·½ĞÎ¾ùÖµÂË²¨Ô­Í¼Ïñ", dst);
 	boxFilter(src, dst, src.depth(), Size(5, 5));
-	imshow("5x5æ–¹å½¢å‡å€¼æ»¤æ³¢åŸå›¾åƒ", dst);
+	imshow("5x5·½ĞÎ¾ùÖµÂË²¨Ô­Í¼Ïñ", dst);
 	/*boxFilter(src, dst, src.depth(), Size(9, 9));
-	imshow("9x9æ–¹å½¢å‡å€¼æ»¤æ³¢åŸå›¾åƒ", dst);
+	imshow("9x9·½ĞÎ¾ùÖµÂË²¨Ô­Í¼Ïñ", dst);
 	boxFilter(src, dst, src.depth(), Size(15, 15));
-	imshow("15x15æ–¹å½¢å‡å€¼æ»¤æ³¢åŸå›¾åƒ", dst);
+	imshow("15x15·½ĞÎ¾ùÖµÂË²¨Ô­Í¼Ïñ", dst);
 	boxFilter(src, dst, src.depth(), Size(35, 35));
-	imshow("35x35æ–¹å½¢å‡å€¼æ»¤æ³¢åŸå›¾åƒ", dst);*/
+	imshow("35x35·½ĞÎ¾ùÖµÂË²¨Ô­Í¼Ïñ", dst);*/
 
 	/*SmoothingFilterByOwn(src, dst, Size(3, 3));
-	imshow("3x3æ–¹å½¢å‡å€¼æ»¤æ³¢å›¾åƒ", dst);
+	imshow("3x3·½ĞÎ¾ùÖµÂË²¨Í¼Ïñ", dst);
 	SmoothingFilterByOwn(src, dst, Size(5, 5));
-	imshow("5x5æ–¹å½¢å‡å€¼æ»¤æ³¢å›¾åƒ", dst);
+	imshow("5x5·½ĞÎ¾ùÖµÂË²¨Í¼Ïñ", dst);
 	SmoothingFilterByOwn(src, dst, Size(9, 9));
-	imshow("9x9æ–¹å½¢å‡å€¼æ»¤æ³¢åŸå›¾åƒ", dst);
+	imshow("9x9·½ĞÎ¾ùÖµÂË²¨Ô­Í¼Ïñ", dst);
 	SmoothingFilterByOwn(src, dst, Size(15, 15));
-	imshow("15x15æ–¹å½¢å‡å€¼æ»¤æ³¢åŸå›¾åƒ", dst);
+	imshow("15x15·½ĞÎ¾ùÖµÂË²¨Ô­Í¼Ïñ", dst);
 	SmoothingFilterByOwn(src, dst, Size(35, 35));
-	imshow("35x35æ–¹å½¢å‡å€¼æ»¤æ³¢åŸå›¾åƒ", dst);*/
-	imshow("å“ˆå‹ƒæœ›è¿œé•œå›¾åƒ", src1);
+	imshow("35x35·½ĞÎ¾ùÖµÂË²¨Ô­Í¼Ïñ", dst);*/
+	imshow("¹ş²ªÍûÔ¶¾µÍ¼Ïñ", src1);
 	boxFilter(src1, dst, src.depth(), Size(15, 15));
-	imshow("å“ˆå‹ƒæœ›è¿œé•œ15x15æ–¹å½¢å‡å€¼æ»¤æ³¢åå›¾åƒ", dst);
+	imshow("¹ş²ªÍûÔ¶¾µ15x15·½ĞÎ¾ùÖµÂË²¨ºóÍ¼Ïñ", dst);
 	threshold(dst, dst, 70, 255, CV_THRESH_BINARY);
-	imshow("é˜ˆå€¼åŒ–çš„å›¾åƒ", dst);
+	imshow("ãĞÖµ»¯µÄÍ¼Ïñ", dst);
 }
 
 
 
 
-// è‡ªå·±ç¼–å†™çš„å‡å€¼æ»¤æ³¢å™¨ä»£ç æ®µ
-// æ ¸ä¸ºå…¨1çŸ©é˜µ
+// ×Ô¼º±àĞ´µÄ¾ùÖµÂË²¨Æ÷´úÂë¶Î
+// ºËÎªÈ«1¾ØÕó
 void Chapter3::SmoothingFilterByOwn(cv::Mat A, cv::Mat &dst, cv::Size ksize = Size(3, 3))
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat kMat = Mat::ones(ksize, CV_8UC1);
 	Mat b = Mat::zeros(Size(kMat.rows-1+A.rows, kMat.cols - 1 + A.cols), A.type());
 	
@@ -667,25 +667,25 @@ void Chapter3::SmoothingFilterByOwn(cv::Mat A, cv::Mat &dst, cv::Size ksize = Si
 }
 
 
-// ç»Ÿè®¡æ’åºæ»¤æ³¢å™¨-ä¸­å€¼æ»¤æ³¢-æœ€å°å€¼æ»¤æ³¢-æœ€å¤§å€¼æ»¤æ³¢
+// Í³¼ÆÅÅĞòÂË²¨Æ÷-ÖĞÖµÂË²¨-×îĞ¡ÖµÂË²¨-×î´óÖµÂË²¨
 void Chapter3::MedianFilter(std::string filename)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat dst,src = imread(filename, 0);
-	imshow("åŸå›¾åƒ", src);
+	imshow("Ô­Í¼Ïñ", src);
 	blur(src, dst, Size(3, 3));
-	imshow("å‡å€¼æ»¤æ³¢å›¾åƒ", dst);
+	imshow("¾ùÖµÂË²¨Í¼Ïñ", dst);
 	medianBlur(src, dst, 3);
-	imshow("ä¸­æŒ‡æ»¤æ³¢å›¾åƒ", dst);
+	imshow("ÖĞÖ¸ÂË²¨Í¼Ïñ", dst);
 }
 
 
-// é”åŒ–æ»¤æ³¢å™¨-æ‹‰æ™®æ‹‰æ–¯ç®—å­
+// Èñ»¯ÂË²¨Æ÷-À­ÆÕÀ­Ë¹Ëã×Ó
 void Chapter3::SharpeningFilterLaplaceOperator(std::string filename)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat dst,dst1,src = imread(filename, 0);
-	imshow("åŸå›¾åƒ", src);
+	imshow("Ô­Í¼Ïñ", src);
 	Laplacian(src, dst, CV_16SC1,1,1,0,4);
 	Mat src1(src.size(), CV_16SC1);
 	for (int i = 0; i < src1.rows; i++)
@@ -696,36 +696,36 @@ void Chapter3::SharpeningFilterLaplaceOperator(std::string filename)
 		}
 	}
 	
-	//imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­æ»¤æ³¢åçš„å›¾åƒ1", dst);
+	//imshow("À­ÆÕÀ­Ë¹Ëã×ÓÂË²¨ºóµÄÍ¼Ïñ1", dst);
 	Mat dst2 = dst.clone();
 	addWeighted(src1, 1, dst, 1, 0, dst);
 	convertScaleAbs(dst, dst);
-	imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­æ»¤æ³¢åçš„æ··åˆå›¾åƒ00", dst);
+	imshow("À­ÆÕÀ­Ë¹Ëã×ÓÂË²¨ºóµÄ»ìºÏÍ¼Ïñ00", dst);
 	addWeighted(src1, 1, dst2, -1, 0, dst);
 	convertScaleAbs(dst, dst);
-	imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­æ»¤æ³¢åçš„æ··åˆå›¾åƒ01", dst);
+	imshow("À­ÆÕÀ­Ë¹Ëã×ÓÂË²¨ºóµÄ»ìºÏÍ¼Ïñ01", dst);
 	LaplaceOperator(src, dst, dst1);
-	//imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­æ»¤æ³¢åå›¾åƒ", dst);
-	//imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­(åŠ å¯¹è§’çº¿æ–¹å‘)æ»¤æ³¢åå›¾åƒ", dst1);
+	//imshow("À­ÆÕÀ­Ë¹Ëã×ÓÂË²¨ºóÍ¼Ïñ", dst);
+	//imshow("À­ÆÕÀ­Ë¹Ëã×Ó(¼Ó¶Ô½ÇÏß·½Ïò)ÂË²¨ºóÍ¼Ïñ", dst1);
 
 	dst2 = dst.clone();
 	//cout << dst2;
 	addWeighted(src, 1, dst,  1, 0, dst);
-	imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­æ»¤æ³¢åçš„æ··åˆå›¾åƒ", dst);
+	imshow("À­ÆÕÀ­Ë¹Ëã×ÓÂË²¨ºóµÄ»ìºÏÍ¼Ïñ", dst);
 	addWeighted(src, 1, dst2, -1, 0, dst);
-	imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­æ»¤æ³¢åçš„æ··åˆå›¾åƒ1", dst);
+	imshow("À­ÆÕÀ­Ë¹Ëã×ÓÂË²¨ºóµÄ»ìºÏÍ¼Ïñ1", dst);
 	dst2 = dst1.clone();
 	addWeighted(src, 1, dst1, -1, 0, dst1);
-	imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­(åŠ å¯¹è§’çº¿æ–¹å‘)æ»¤æ³¢åçš„æ··åˆå›¾åƒ", dst1);
+	imshow("À­ÆÕÀ­Ë¹Ëã×Ó(¼Ó¶Ô½ÇÏß·½Ïò)ÂË²¨ºóµÄ»ìºÏÍ¼Ïñ", dst1);
 	addWeighted(src, 1, dst2, 1, 0, dst1);
-	imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­(åŠ å¯¹è§’çº¿æ–¹å‘)æ»¤æ³¢åçš„æ··åˆå›¾åƒ1", dst1);
+	imshow("À­ÆÕÀ­Ë¹Ëã×Ó(¼Ó¶Ô½ÇÏß·½Ïò)ÂË²¨ºóµÄ»ìºÏÍ¼Ïñ1", dst1);
 }
 
 
-// æ‹‰æ™®æ‹‰æ–¯ç®—å­
+// À­ÆÕÀ­Ë¹Ëã×Ó
 void Chapter3::LaplaceOperator(cv::Mat A,cv::Mat &dst, cv::Mat &dst1)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat la1,la2;
 	la1 = (Mat_<short int>(3, 3) << 0, -1, 0, -1, 4, -1, 0, -1, 0);
 	la2 = (Mat_<short int>(3, 3) << 1, 1, 1, 1, -8, 1, 1, 1, 1);
@@ -777,25 +777,25 @@ void Chapter3::LaplaceOperator(cv::Mat A,cv::Mat &dst, cv::Mat &dst1)
 			temp_ = (float)abs(temp_) / max1 * 255;
 			dst1.at<uchar>(i, j) = temp_;
 
-			//æ ‡å®šåçš„å›¾åƒ
+			//±ê¶¨ºóµÄÍ¼Ïñ
 			temp_ = (float)(temp1.at<short>(i, j) - min1) / (max1 - min1) * 255;
 			temp3.at<uchar>(i, j) = temp_;
 		}
 	}
-	imshow("ç®—å­1æ ‡å®šå›¾åƒ", temp2);
-	imshow("ç®—å­2æ ‡å®šå›¾åƒ", temp3);
+	imshow("Ëã×Ó1±ê¶¨Í¼Ïñ", temp2);
+	imshow("Ëã×Ó2±ê¶¨Í¼Ïñ", temp3);
 
 }
 
 
-// éé”åŒ–æ»¤æ³¢ä»¥åŠé«˜æå‡æ»¤æ³¢
+// ·ÇÈñ»¯ÂË²¨ÒÔ¼°¸ßÌáÉıÂË²¨
 void Chapter3::NonShrpeningAndHighBoost(std::string filename)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat dst,dst1,src = imread(filename, 0);
-	imshow("åŸå›¾åƒ", src);
+	imshow("Ô­Í¼Ïñ", src);
 	GaussianBlur(src, dst, Size(5,5), 3);
-	imshow("ä½¿ç”¨é«˜æ–¯æ»¤æ³¢å™¨æ¨¡ç³Šçš„ç»“æœ",dst);
+	imshow("Ê¹ÓÃ¸ßË¹ÂË²¨Æ÷Ä£ºıµÄ½á¹û",dst);
 	addWeighted(src, 1, dst, -1, 0, dst);
 	dst1 = dst.clone();
 	for (int i = 0; i < dst.size().height; i++)
@@ -805,47 +805,47 @@ void Chapter3::NonShrpeningAndHighBoost(std::string filename)
 			dst1.at<uchar>(i, j) = 255 - dst.at<uchar>(i, j);
 		}
 	}
-	imshow("éé”åŒ–æ¨¡æ¿", dst1);
+	imshow("·ÇÈñ»¯Ä£°å", dst1);
 	addWeighted(src, 1, dst, 1, 0, dst1);
 	addWeighted(src, 1, dst, 4.5, 0, dst);
-	imshow("ä½¿ç”¨éé”æ©è”½çš„ç»“æœ", dst1);
-	imshow("ä½¿ç”¨é«˜æå‡æ»¤æ³¢çš„ç»“æœ", dst);
+	imshow("Ê¹ÓÃ·ÇÈñÑÚ±ÎµÄ½á¹û", dst1);
+	imshow("Ê¹ÓÃ¸ßÌáÉıÂË²¨µÄ½á¹û", dst);
 }
 
 
-// Sobelç®—å­
+// SobelËã×Ó
 void Chapter3::SobelOperator()
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 }
 
 
-// é”åŒ–æ»¤æ³¢å™¨-Sobelç®—å­
+// Èñ»¯ÂË²¨Æ÷-SobelËã×Ó
 void Chapter3::SharpeningFilterSobelOperator(std::string filename)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat dst,dst1,src = imread(filename, 0);
-	imshow("åŸå›¾åƒ", src);
+	imshow("Ô­Í¼Ïñ", src);
 
 	Sobel(src, dst, CV_16S, 1, 0);
 	convertScaleAbs(dst, dst);
-	imshow("Sobel_xå›¾åƒ", dst);
+	imshow("Sobel_xÍ¼Ïñ", dst);
 	Sobel(src, dst1, CV_16S, 0, 1);
 	convertScaleAbs(dst1, dst1);
-	imshow("Sobel_yåŸå›¾åƒ", dst1);
+	imshow("Sobel_yÔ­Í¼Ïñ", dst1);
 	
 	addWeighted(dst, 0.5, dst1, 0.5, 0, dst);
-	imshow("Sobel_(x+y)åŸå›¾åƒ", dst);
+	imshow("Sobel_(x+y)Ô­Í¼Ïñ", dst);
 
 }
 
 
-// æ··åˆç©ºé—´å¢å¼º
+// »ìºÏ¿Õ¼äÔöÇ¿
 void Chapter3::CombiningSpatialEnhancement(std::string filename)
 {
-	// TODO: åœ¨æ­¤å¤„æ·»åŠ å®ç°ä»£ç .
+	// TODO: ÔÚ´Ë´¦Ìí¼ÓÊµÏÖ´úÂë.
 	Mat dst1,dst2,src = imread(filename, 0);
-	imshow("å…¨èº«éª¨éª¼æ‰«æå›¾åƒ", src);
+	imshow("È«Éí¹Ç÷ÀÉ¨ÃèÍ¼Ïñ", src);
 	Mat dst(src.size(), CV_16SC1);
 	Laplacian(src, dst, CV_16S, 1);
 	Mat src1(src.size(), CV_16SC1);
@@ -858,14 +858,14 @@ void Chapter3::CombiningSpatialEnhancement(std::string filename)
 	}
 	addWeighted(src1, 1, dst, -1, 0, dst);
 	convertScaleAbs(dst, dst2);
-	imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­æ»¤æ³¢åçš„å›¾åƒ", dst2);
+	imshow("À­ÆÕÀ­Ë¹Ëã×ÓÂË²¨ºóµÄÍ¼Ïñ", dst2);
 	Sobel(src, dst, CV_16S, 1, 0);
 	convertScaleAbs(dst, dst);
 	Sobel(src, dst1, CV_16S, 0, 1);
 	convertScaleAbs(dst1, dst1);
 	addWeighted(dst, 1, dst1, 1, 0, dst);
 	blur(dst, dst, Size(5,5));
-	imshow("Sobelå›¾åƒå¤„ç†çš„ç»“æœ", dst);
+	imshow("SobelÍ¼Ïñ´¦ÀíµÄ½á¹û", dst);
 	for (int i = 0; i < dst.rows; i++)
 	{
 		for (int j = 0; j < dst.cols; j++)
@@ -874,9 +874,9 @@ void Chapter3::CombiningSpatialEnhancement(std::string filename)
 		}
 	}
 
-	imshow("Sobelå›¾åƒå¤„ç†çš„ç»“æœ1", dst);
+	imshow("SobelÍ¼Ïñ´¦ÀíµÄ½á¹û1", dst);
 	addWeighted(src, 1, dst, 1, 0, dst);
-	imshow("Sobelå›¾åƒå¤„ç†çš„ç»“æœ2", dst);
+	imshow("SobelÍ¼Ïñ´¦ÀíµÄ½á¹û2", dst);
 	for (int i = 0; i < dst.rows; i++)
 	{
 		for (int j = 0; j < dst.cols; j++)
@@ -884,21 +884,21 @@ void Chapter3::CombiningSpatialEnhancement(std::string filename)
 			dst.at<uchar>(i, j) = pow(dst.at<uchar>(i, j), 0.5) / pow(255, 0.5) * 255;
 		}
 	}
-	imshow("Sobelå›¾åƒå¤„ç†çš„ç»“æœ3", dst);
+	imshow("SobelÍ¼Ïñ´¦ÀíµÄ½á¹û3", dst);
 	/*convertScaleAbs(dst, dst);
-	imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­æ»¤æ³¢åçš„å›¾åƒ", dst);
+	imshow("À­ÆÕÀ­Ë¹Ëã×ÓÂË²¨ºóµÄÍ¼Ïñ", dst);
 
 	LaplaceOperator(src, dst1, dst2);
 	addWeighted(src, 1, dst, -1, 0, dst);
-	imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­å¢å¼ºåçš„å›¾åƒ", dst);
+	imshow("À­ÆÕÀ­Ë¹Ëã×ÓÔöÇ¿ºóµÄÍ¼Ïñ", dst);
 
 	addWeighted(src, 1, dst2, -1, 0, dst2);
-	imshow("æ‹‰æ™®æ‹‰æ–¯ç®—å­å¢å¼ºåçš„å›¾åƒ2", dst2);
+	imshow("À­ÆÕÀ­Ë¹Ëã×ÓÔöÇ¿ºóµÄÍ¼Ïñ2", dst2);
 
 	Sobel(src, dst, CV_16S, 1, 0);
 	convertScaleAbs(dst, dst);
 	Sobel(src, dst1, CV_16S, 0, 1);
 	convertScaleAbs(dst1, dst1);
 	addWeighted(dst, 0.5, dst1, 0.5, 0, dst);
-	imshow("Sobelå›¾åƒå¤„ç†çš„ç»“æœ", dst);*/
+	imshow("SobelÍ¼Ïñ´¦ÀíµÄ½á¹û", dst);*/
 }

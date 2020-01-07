@@ -2,7 +2,7 @@
 class Chapter5
 {
 public:
-    //å‚…é‡Œå¶å˜æ¢
+    //¸µÀïÒ¶±ä»»
     static void FourierTransform(Mat &a){
         
     }

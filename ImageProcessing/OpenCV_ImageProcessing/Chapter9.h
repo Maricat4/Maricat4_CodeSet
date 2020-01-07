@@ -3,35 +3,35 @@
 class Chapter9
 {
 public:
-    //è†¨èƒ€
+    //ÅòÕÍ
     static void Dilating(const string &);
-    //è…èš€
+    //¸¯Ê´
     static void Eroding(const string &);
-    //OpenCVâ€”â€”è…èš€
+    //OpenCV¡ª¡ª¸¯Ê´
     static void CV_Eroding(const string &);
-    //è…èš€ä¸è†¨èƒ€ å½“ç»“æ„å…ƒç´ ä¸å†æ˜¯1ï¼Œä¸º0æ—¶,ä½¿ç”¨å›¾ç‰‡
+    //¸¯Ê´ÓëÅòÕÍ µ±½á¹¹ÔªËØ²»ÔÙÊÇ1£¬Îª0Ê±,Ê¹ÓÃÍ¼Æ¬
     static void CV0_ErodingANDDilating(const string  &);
-    //è…èš€ä¸è†¨èƒ€ å½“ç»“æ„å…ƒç´ ä¸å†æ˜¯1ï¼Œä¸º0æ—¶,ä½¿ç”¨çŸ©é˜µ
+    //¸¯Ê´ÓëÅòÕÍ µ±½á¹¹ÔªËØ²»ÔÙÊÇ1£¬Îª0Ê±,Ê¹ÓÃ¾ØÕó
     static void CV0_ErodingANDDilating2();
-    //OpenCVâ€”â€”è†¨èƒ€
+    //OpenCV¡ª¡ªÅòÕÍ
     static void CV_Dilating(const string &);
 
-    //å¯¹å¶æ€§
+    //¶ÔÅ¼ĞÔ
     static void CV_Duality(const string &);
 
-    //å¼€æ“ä½œ,é—­æ“ä½œ
+    //¿ª²Ù×÷,±Õ²Ù×÷
     static void CV_OPEN_CLOSE(const string &);
 
-    //å‡»ä¸­å‡»ä¸ä¸­å˜æ¢-HMT transform
+    //»÷ÖĞ»÷²»ÖĞ±ä»»-HMT transform
     static void CV_HMT_TRANSFORM(const string &);
 
-    //è¾¹ç•Œæå–
+    //±ß½çÌáÈ¡
     static void CV_BoundaryExtraction(const string &);
-    //å­”æ´å¡«å……
+    //¿×¶´Ìî³ä
     static void CV_HoleFilling(const string  &);
-    //è¿é€šåˆ†é‡çš„æå–
+    //Á¬Í¨·ÖÁ¿µÄÌáÈ¡
     static void CV_ExtractionOFConnectedComponents(const string &);
-    //å‡¸åŒ…
+    //Í¹°ü
     static void CV_Convex(const string &);
 };
 
@@ -49,7 +49,7 @@ void Chapter9::Dilating(const string &a){
     {
         for (size_t j = 1; j < _m1.cols-1; j++)
         {
-            //3x3ç»“æ„å…ƒç´ è†¨èƒ€
+            //3x3½á¹¹ÔªËØÅòÕÍ
             sumtemp = 0;
             N = 3;
             if(_m1.at<uchar>(i,j)==255){
@@ -112,9 +112,9 @@ void Chapter9::Dilating(const string &a){
 }
 void Chapter9::Eroding(const string &a){
     Mat _m1 = imread(a,0);
-    imshow("æºå›¾åƒ",_m1);
+    imshow("Ô´Í¼Ïñ",_m1);
     //threshold(_m1,_m1,128,255,CV_THRESH_BINARY);
-    //imshow("äºŒå€¼åŒ–å›¾åƒ",_m1);
+    //imshow("¶şÖµ»¯Í¼Ïñ",_m1);
     Mat m1 = Mat::ones(Size(11,11),CV_8UC1), m2 = Mat::ones(Size(15,15),CV_8UC1),m3 = Mat::ones(Size(45,45),CV_8UC1);
     Mat _m2 = Mat::zeros(_m1.size(),_m1.type()),_m3= Mat::zeros(_m1.size(),_m1.type()),_m4 = Mat::zeros(_m1.size(),_m1.type());
     int sumtemp = 0,N = 0;
@@ -122,7 +122,7 @@ void Chapter9::Eroding(const string &a){
     {
         for (size_t j = 0; j < _m1.cols; j++)
         {
-            //11x11ç»“æ„å…ƒç´ è…èš€
+            //11x11½á¹¹ÔªËØ¸¯Ê´
             sumtemp = 0;
             N = 11;
             for (size_t x = 0; x < N; x++)
@@ -143,7 +143,7 @@ void Chapter9::Eroding(const string &a){
                 _m2.at<uchar>(i,j) = 0;
             }
             
-            //15x15ç»“æ„å…ƒç´ è…èš€
+            //15x15½á¹¹ÔªËØ¸¯Ê´
             sumtemp = 0;
             N = 15;
             for (size_t x = 0; x < N; x++)
@@ -162,7 +162,7 @@ void Chapter9::Eroding(const string &a){
             {
                 _m3.at<uchar>(i,j) = 0;
             }
-            //45x45ç»“æ„å…ƒç´ è…èš€
+            //45x45½á¹¹ÔªËØ¸¯Ê´
             sumtemp = 0;
             N = 45;
             for (size_t x = 0; x < N; x++)
@@ -184,7 +184,7 @@ void Chapter9::Eroding(const string &a){
         }
         
     }
-    //imshow("åŸå›¾",_m1);
+    //imshow("Ô­Í¼",_m1);
     imshow("11x11",_m2);
     imshow("15x15",_m3);
     imshow("45x45",_m4);
@@ -194,29 +194,29 @@ void Chapter9::CV_Dilating(const string &a){
     Mat _m1 = imread(a,0);
     Mat _m2,_m3;
    // Mat element = getStructuringElement()
-    imshow("åŸå›¾åƒ",_m1);
+    imshow("Ô­Í¼Ïñ",_m1);
     dilate(_m1,_m2,getStructuringElement(MORPH_CROSS,Size(3,3)));
-    imshow("è†¨èƒ€åCROSS",_m2);
+    imshow("ÅòÕÍºóCROSS",_m2);
     dilate(_m1,_m3,getStructuringElement(MORPH_RECT,Size(3,3)));
-    imshow("è†¨èƒ€åRECT",_m3);
+    imshow("ÅòÕÍºóRECT",_m3);
     //dilate()
 }
 
 void Chapter9::CV_Eroding(const string &a){
     Mat _m1 = imread(a,0);
-    imshow("åŸå›¾",_m1);
+    imshow("Ô­Í¼",_m1);
     Mat _m2,_m3,_m4;
     erode(_m1,_m2,getStructuringElement(MORPH_RECT,Size(11,11)));
     erode(_m1,_m3,getStructuringElement(MORPH_RECT,Size(15,15)));
     erode(_m1,_m4,getStructuringElement(MORPH_RECT,Size(45,45)));
-    imshow("11x11è…èš€å",_m2);
-    imshow("15x15è…èš€å",_m3);
-    imshow("45x45è…èš€å",_m4);
+    imshow("11x11¸¯Ê´ºó",_m2);
+    imshow("15x15¸¯Ê´ºó",_m3);
+    imshow("45x45¸¯Ê´ºó",_m4);
 }
 
 void Chapter9::CV_Duality(const string &a){
     Mat _m1 = imread(a,0);
-    imshow("åŸå›¾",_m1);
+    imshow("Ô­Í¼",_m1);
     Mat _m2,_m3,_m4;
     
     Mat _strl = getStructuringElement(MORPH_RECT,Size(11,11));
@@ -228,32 +228,32 @@ void Chapter9::CV_Duality(const string &a){
     erode(_m1,_m2,_strl);
     dilate(_m4,_m3,_strl);
 
-    imshow("è…èš€åŸå›¾",_m2);
-    imshow("è†¨èƒ€è¡¥é›†",_m0 - _m3);
+    imshow("¸¯Ê´Ô­Í¼",_m2);
+    imshow("ÅòÕÍ²¹¼¯",_m0 - _m3);
 
 }
 
 void Chapter9::CV_OPEN_CLOSE(const string &a){
     Mat _m1 = imread(a,0);
-    imshow("åŸå›¾",_m1);
+    imshow("Ô­Í¼",_m1);
     Mat _m2,_m3,_m4;
-    //å¼€æ“ä½œ
+    //¿ª²Ù×÷
     Mat m0 = getStructuringElement(MORPH_RECT,Size(3,3));
     erode(_m1,_m2,m0);
     dilate(_m2,_m2,m0);
-    imshow("å¼€æ“ä½œ",_m2);
+    imshow("¿ª²Ù×÷",_m2);
 
     dilate(_m2,_m2,m0);
     erode(_m2,_m2,m0);
-    imshow("å¼€æ“ä½œåé—­æ“ä½œ",_m2);
-    //imshow("å¼€æ“ä½œä¸åŸå›¾ä½œå·®",_m1 - _m2);
+    imshow("¿ª²Ù×÷ºó±Õ²Ù×÷",_m2);
+    //imshow("¿ª²Ù×÷ÓëÔ­Í¼×÷²î",_m1 - _m2);
 
 
 }
 
 void Chapter9::CV_HMT_TRANSFORM(const string &str){
     Mat _m1 = imread(str,0);
-    imshow("åŸå›¾",_m1);
+    imshow("Ô­Í¼",_m1);
     
     Mat b1 = (Mat_<uchar>(3,3)<<0,0,0,0,1,1,0,1,1);
     Mat b2 = (Mat_<uchar>(3,3)<<1,1,1,1,1,0,1,0,0);
@@ -281,7 +281,7 @@ void Chapter9::CV_BoundaryExtraction(const string &str){
     Mat _m1 = imread(str,0);
     Mat strl = getStructuringElement(MORPH_RECT,Size(15,15));
     Mat _m2,_m3;
-    imshow("åŸå›¾",_m1);
+    imshow("Ô­Í¼",_m1);
     erode(_m1,_m2,strl);
     imshow("erode _m1 by using RectEle",_m2);
     imshow("diference _m1 and _m2",_m1 - _m2);
@@ -292,7 +292,7 @@ void Chapter9::CV_HoleFilling(const string &str){
     Mat _m1 = imread(str,0);
     Mat _m2 = _m1.clone();
     floodFill(_m2,Point(0,0),Scalar(255));
-    imshow("åŸå›¾",_m1);
+    imshow("Ô­Í¼",_m1);
     imshow("floodfill_m1",_m2);
     //Mat _m3 = Mat_<uchar>(_m1.size(),255);
     //Mat _m4 = _m3 - _m1;
@@ -370,13 +370,13 @@ int LabelConnectedComponent(const cv::Mat &src, cv::Mat &dst, bool iseight = tru
 void Chapter9::CV_ExtractionOFConnectedComponents(const string &str){
     Mat _m1 = imread(str,0);
     Mat _m2,_m3;
-    imshow("åŸå›¾åƒ",_m1);
+    imshow("Ô­Í¼Ïñ",_m1);
     adaptiveThreshold(_m1,_m2,255,ADAPTIVE_THRESH_MEAN_C,THRESH_BINARY,15,0);
-    imshow("è‡ªé€‚åº”é˜ˆå€¼åˆ†å‰²",_m2);
+    imshow("×ÔÊÊÓ¦ãĞÖµ·Ö¸î",_m2);
     _m3 = imread("pic\\CH09\\bw_bacteria.bmp",0);
-    imshow("ç»†èŒå›¾",_m3);
+    imshow("Ï¸¾úÍ¼",_m3);
     cout<<LabelConnectedComponent(_m3,_m2);
-    imshow("æå–å",_m2);
+    imshow("ÌáÈ¡ºó",_m2);
 
 }
 
@@ -463,7 +463,7 @@ void Chapter9::CV0_ErodingANDDilating(const string &str){
         
     }
     
-    breakloop1:imshow("åŸå›¾",_m4);
+    breakloop1:imshow("Ô­Í¼",_m4);
     imshow("_m2",_m2);
     imshow("_m3",_m3);
    // imshow("_m21",_m4 - _m2);
