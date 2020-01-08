@@ -3,9 +3,9 @@
 #include <list>
 #include <vector>
 
-//æ–¹ä¾¿è°ƒè¯•è·å–å˜é‡å
+//·½±ãµ÷ÊÔ»ñÈ¡±äÁ¿Ãû
 #define  varName(x) #x
-#define  printExp(exp) cout<<#exp<<"ä¸º:\t\t"<<(exp)<<endl  //è¿™æ ·å°±æ–¹ä¾¿è°ƒè¯•äº†ï¼Œä¸ç”¨ä¸€ä¸ªä¸ªçš„å†™å˜é‡åç§°äº†
+#define  printExp(exp) cout<<#exp<<"Îª:\t\t"<<(exp)<<endl  //ÕâÑù¾Í·½±ãµ÷ÊÔÁË£¬²»ÓÃÒ»¸ö¸öµÄĞ´±äÁ¿Ãû³ÆÁË
 
 //typedef basic_string<int> intstring; 
 using namespace std;
@@ -38,22 +38,22 @@ void test(){
 
 #pragma region string
 namespace stringoperator{
-//stringçš„æ„é€ æ–¹æ³•
+//stringµÄ¹¹Ôì·½·¨
 void stringConstructor(){
-    string str0;//ç©ºä¸²
-    string str1(5,'c');//ç”Ÿæˆä¸€ä¸ªå­—ç¬¦ä¸²åŒ…å«5ä¸ª
-    string str2(str1);//ç”Ÿæˆå­—ç¬¦ä¸²str1çš„å¤åˆ¶å“ã€‚
+    string str0;//¿Õ´®
+    string str1(5,'c');//Éú³ÉÒ»¸ö×Ö·û´®°üº¬5¸ö
+    string str2(str1);//Éú³É×Ö·û´®str1µÄ¸´ÖÆÆ·¡£
     cout<<"str1_address="<<&str1<<" str1="+str1<<endl;
-    cout<<"str2_address="<<&str2<<" str2="+str2<<endl;//å¯¹è±¡æ˜¯ä¸åŒå¯¹è±¡ï¼Œç”±äºå¯¹è±¡ä¸­æœ‰å­—ç¬¦ä¸²æŒ‡é’ˆ
+    cout<<"str2_address="<<&str2<<" str2="+str2<<endl;//¶ÔÏóÊÇ²»Í¬¶ÔÏó£¬ÓÉÓÚ¶ÔÏóÖĞÓĞ×Ö·û´®Ö¸Õë
     str1 = "xxxwww";
     cout<<"str1_address="<<&str1<<" str1="+str1<<endl;
     cout<<"str2_address="<<&str2<<" str2="+str2<<endl;
-    string str3(str1,3);//å°†å­—ç¬¦ä¸²str1ä¸­å§‹äº3çš„ä½ç½®çš„éƒ¨åˆ†ä½œä¸ºæ„é€ å‡½æ•°çš„åˆå€¼,idxä»é›¶å¼€å§‹
+    string str3(str1,3);//½«×Ö·û´®str1ÖĞÊ¼ÓÚ3µÄÎ»ÖÃµÄ²¿·Ö×÷Îª¹¹Ôìº¯ÊıµÄ³õÖµ,idx´ÓÁã¿ªÊ¼
     cout<<"str3="+str3<<endl;
-    string str4(str1,2,2);//å°†å­—ç¬¦ä¸²str1ä¸­å§‹äºidx1ä½ç½®çš„ä¸”é•¿åº¦ä¸º2çš„éƒ¨åˆ†ä½œä¸ºæ„é€ å‡½æ•°çš„åˆå€¼,idxä»é›¶å¼€å§‹
+    string str4(str1,2,2);//½«×Ö·û´®str1ÖĞÊ¼ÓÚidx1Î»ÖÃµÄÇÒ³¤¶ÈÎª2µÄ²¿·Ö×÷Îª¹¹Ôìº¯ÊıµÄ³õÖµ,idx´ÓÁã¿ªÊ¼
     cout<<"str4="+str4<<endl;
     const char *Cstr0 ="xwxwxw";
-    string str5(Cstr0);//ä»¥C_stringç±»å‹çš„csträ½œä¸ºæ„é€ å‡½æ•°çš„åˆå€¼
+    string str5(Cstr0);//ÒÔC_stringÀàĞÍµÄcstr×÷Îª¹¹Ôìº¯ÊıµÄ³õÖµ
     cout<<"Cstr0="<<Cstr0<<endl;
     cout<<"str5="<<str5<<endl;
     string str6(Cstr0,2);
@@ -61,7 +61,7 @@ void stringConstructor(){
     try
     {
         // cout<<(int)'x'<<" "<<(int)'w'<<endl;
-        // string str7(str1,'x','w');//è¿™é‡Œå°†'x' 'w'è½¬æˆintç±»å‹çš„æ•°å€¼äº†
+        // string str7(str1,'x','w');//ÕâÀï½«'x' 'w'×ª³ÉintÀàĞÍµÄÊıÖµÁË
         // cout<<"str7="+str7<<endl;
         string str8(Cstr0,1,2);
         cout<<"str8="+str8<<endl;
@@ -74,11 +74,11 @@ void stringConstructor(){
     string str9(str1.begin(),str1.begin()+2);
     cout<<"str9="<<str9<<endl;
 
-    //å°è¯•ä½¿ç”¨listçš„è¿­ä»£å™¨åˆå§‹åŒ–string,æŠ¥é”™æ— åŒ¹é…çš„æ„é€ å‡½æ•°
+    //³¢ÊÔÊ¹ÓÃlistµÄµü´úÆ÷³õÊ¼»¯string,±¨´íÎŞÆ¥ÅäµÄ¹¹Ôìº¯Êı
     // list<char> _list_char={'a','b','c'};
     // string str10(_list_char.begin(),_list_char.begin()+2);
     // cout<<"str10="<<str10<<endl;
-    //ä½¿ç”¨vectorçš„è¿­ä»£å™¨å¯ä»¥åˆå§‹åŒ–string
+    //Ê¹ÓÃvectorµÄµü´úÆ÷¿ÉÒÔ³õÊ¼»¯string
     vector<char> _vector_char={'a','b','c'};
     string str11(_vector_char.begin(),_vector_char.begin()+2);
     cout<<"str11="<<str11<<endl;
@@ -96,20 +96,20 @@ void ShowCharStar(const char  *str,const string &name){
     cout<<name<<":"<<str<<endl;
     cout<<name<<" address:"<<(long long)str<<endl;
 }
-//stringçš„å¤§å°ä¸å®¹é‡
+//stringµÄ´óĞ¡ÓëÈİÁ¿
 void stringCapacity(){
     
-    //str.data()è¿”å›çš„æ˜¯å­—ç¬¦ä¸²å­˜å‚¨åœ°å€
-    //å¹¶ä¸”æ¯æ¬¡stré‡æ–°åˆ†é…å­—ç¬¦ä¸²å¤§å°ï¼Œå¹¶ä¸”æ˜¯åŸæ¥çš„ä¸¤å€
-    //é‡æ–°èµ‹ç»™çš„å­—ç¬¦ä¸²stræ¯”ç°åœ¨å·²åˆ†é…çš„å¤§å°å¤§,ä¼šé€ æˆé‡æ–°åˆ†é…çš„æ“ä½œï¼Œé»˜è®¤åˆ†é…å¤§å°ä¸º15
+    //str.data()·µ»ØµÄÊÇ×Ö·û´®´æ´¢µØÖ·
+    //²¢ÇÒÃ¿´ÎstrÖØĞÂ·ÖÅä×Ö·û´®´óĞ¡£¬²¢ÇÒÊÇÔ­À´µÄÁ½±¶
+    //ÖØĞÂ¸³¸øµÄ×Ö·û´®str±ÈÏÖÔÚÒÑ·ÖÅäµÄ´óĞ¡´ó,»áÔì³ÉÖØĞÂ·ÖÅäµÄ²Ù×÷£¬Ä¬ÈÏ·ÖÅä´óĞ¡Îª15
     string str1("stringstringstring");
     string str0("abcdefg");
     ShowStringContent(str1,"str1");
     ShowStringContent(str0,"str0");
     str1 = "stringstringstrings";
     ShowStringContent(str1,"str1");
-    //ç©ºé—´çš„å¤§å°å˜ä¸ºåŸæ¥çš„ä¸¤å€ï¼Œå¯¹è±¡çš„é¦–åœ°å€æ²¡æœ‰å˜
-    //å¯¹è±¡çš„åœ°å€å’Œå¯¹è±¡ä¸­çš„åŒ…å«çš„å­—ç¬¦æ•°ç»„åœ°å€ä¸ä¸€è‡´ï¼Ÿ
+    //¿Õ¼äµÄ´óĞ¡±äÎªÔ­À´µÄÁ½±¶£¬¶ÔÏóµÄÊ×µØÖ·Ã»ÓĞ±ä
+    //¶ÔÏóµÄµØÖ·ºÍ¶ÔÏóÖĞµÄ°üº¬µÄ×Ö·ûÊı×éµØÖ·²»Ò»ÖÂ£¿
     const char *p1 = str1.data();
     ShowCharStar(p1,"p1");
     str1 = "str1";
@@ -122,14 +122,14 @@ void stringCapacity1(){
     cout<<sizeof(*str0.data())<<endl;
     showT(str0);
 }
-//å­—ç¬¦ä¸²å…ƒç´ çš„è®¿é—®
+//×Ö·û´®ÔªËØµÄ·ÃÎÊ
 void stringElementAcess(){
     string str0("abcdefg");
     try
     {
         
         showT(str0[0],"str0[0]=");
-        //è¶Šç•Œ
+        //Ô½½ç
         showT(str0[str0.size()],"str0[str0.size()]=");
         showT(str0.at(1),"str0.at(1)=");
         
@@ -143,7 +143,7 @@ void stringElementAcess(){
         std::cerr << e.what() << '\n';
     }
     
-    //ä½¿ç”¨è¿­ä»£å™¨
+    //Ê¹ÓÃµü´úÆ÷
     string::iterator it = str0.begin();
     *it = 'b';
     for (; it<str0.end(); ++it)
@@ -164,7 +164,7 @@ void stringElementAcess(){
         cout<<*it2<<",";
     }
 }
-//å­—ç¬¦ä¸²çš„ä¿®æ”¹
+//×Ö·û´®µÄĞŞ¸Ä
 void stringModifiers(){
     string s0("inf");
     string s1(2,'b');
@@ -184,9 +184,10 @@ void stringModifiers(){
     s2.append(s0.begin(),s0.end());
     try
     {
-        //æœ‰é—®é¢˜çš„æ“ä½œ
-        s2.append({"str1qqqq","str"});
-        //æ­£å¸¸æ“ä½œ
+        
+        //ÓĞÎÊÌâµÄ²Ù×÷
+        //s2.append({"str1qqqq","str"});
+        //Õı³£²Ù×÷-initializer_list
         s2.append({'a','a','x'});
     }
     catch(const std::exception& e)
@@ -206,23 +207,68 @@ void stringModifiers(){
     cout<<(long long)s2.data()<<endl;
     s0.assign(string("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
     cout<<(long long)s0.data()<<endl;
+
+    //insert
+    string s3("dio");
+    s3.insert(3,"dio");
+    showT(s3,"s3:");
+    s3.insert(s3.end()-3,{'j','o','j','o'});
+    showT(s3,"s3:");
+    s3.insert(s3.end()-3,100,'B');
+    showT(s3,"s3:");
+
+
+    //erase
+    s3.erase(s3.end()-3-100,s3.end());
+    showT(s3,"s3:");
+    s3.erase(0,1);
+    showT(s3.length());
+    showT(s3,"s3:");
+    s3.erase(s3.begin(),s3.begin()+1);
+    showT(s3,"s3:");
+    showT(s3.length());
+
+    //replace
+    showT(s3,"s3:");
+    s3.replace(2,0,"DIODA");
+    showT(s3,"s3:");
+    s3.erase(s3.find("DIODA"),5);
+    showT(s3,"s3:");
+    s3.replace(s3.begin(),s3.begin(),"DIODA");
+    showT(s3,"s3:");
+    s3.erase(s3.find("DIODA"),5);
+    showT(s3,"s3:");
+    s3.replace(0,0,"DIODA",0,3);
+    showT(s3,"s3:");
+    s3.replace(0,0,"DA",2);
+
+    //swap
+    string s4(5,'k');
+    showT(s4,"s4:");
+    showT((long long)s4.data(),"s4.data:");
+    showT((long long)s3.data(),"s3.data:");
+    showT(s3+" "+s4,"s3&s4:");
+    s3.swap(s4);
+    showT((long long)s4.data(),"s4.data:");
+    showT((long long)s3.data(),"s3.data:");
+    showT(s3+" "+s4,"s3&s4:");
 }
-//stringæµ‹è¯•
+//string²âÊÔ
 void stringtest(){
-    //è‡ªå®šä¹‰basic_string<T>
+    //×Ô¶¨Òåbasic_string<T>
     //customize_basicstring::test();
 
-    //stringæ„é€ å‡½æ•°testå‡½æ•°
+    //string¹¹Ôìº¯Êıtestº¯Êı
     //stringoperator::stringConstructor();
 
-    //stringå¤§å°ä¸å®¹é‡
+    //string´óĞ¡ÓëÈİÁ¿
     //stringoperator::stringCapacity();
     //stringoperator::stringCapacity1();
 
-    //stringå…ƒç´ è®¿é—®
+    //stringÔªËØ·ÃÎÊ
     //stringElementAcess();
     
-    //stringä¿®æ”¹
+    //stringĞŞ¸Ä
     stringModifiers();
 }
 }
@@ -232,7 +278,7 @@ void stringtest(){
 
 
 
-#pragma region å„ç±»å°æµ‹è¯•
+#pragma region ¸÷ÀàĞ¡²âÊÔ
 namespace tests{
 //testClassSize
 #pragma region testClassSize
@@ -256,7 +302,16 @@ void test0(){
 int main(){
     
 {
-    stringoperator::stringtest();
+    try
+    {
+        stringoperator::stringtest();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+    
 
 }
     
