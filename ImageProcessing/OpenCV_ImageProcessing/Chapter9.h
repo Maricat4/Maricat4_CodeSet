@@ -1,5 +1,9 @@
 #pragma once
 #include "pch.h"
+/***
+ * 形态学图像处理
+ * 
+***/
 class Chapter9
 {
 public:
@@ -252,29 +256,57 @@ void Chapter9::CV_OPEN_CLOSE(const string &a){
 }
 
 void Chapter9::CV_HMT_TRANSFORM(const string &str){
-    Mat _m1 = imread(str,0);
-    imshow("原图",_m1);
+    // Mat _m1 = imread(str,0);
+    // imshow("原图",_m1);
     
-    Mat b1 = (Mat_<uchar>(3,3)<<0,0,0,0,1,1,0,1,1);
-    Mat b2 = (Mat_<uchar>(3,3)<<1,1,1,1,1,0,1,0,0);
+    // Mat b1 = (Mat_<int>(3,3)<<0,0,0,0,1,1,0,1,1);
+    // Mat b2 = (Mat_<int>(3,3)<<1,1,1,1,1,0,1,0,0);
 
-    Mat_<uchar> b3(5,5);
-    b3<<1,1,1,1,1,1,1,1,1,1;
-    Mat b4(Size(3,3),CV_8UC1);
-    cout<<b3<<endl;
-    Mat _m2,_m3 =  Mat_<uchar>(_m1.size(),255) - _m1;
-    imshow("_m3_0",_m3);
-    erode(_m1,_m2,b1);
-    _m2/=255;
-    erode(_m3,_m3,b2);
-    imshow("_m30",_m3);
-    _m3/=255;
-    _m3 = ((_m2+_m3)-(_m2+_m3)/(_m2+_m3))*255;
-    imshow("_m3",_m3);
+    // Mat_<uchar> b3(5,5);
+    // b3<<1,1,1,1,1,1,1,1,1,1;
+    // Mat b4(Size(3,3),CV_8UC1);
+    // cout<<b3<<endl;
+    // Mat _m2,_m3 =  Mat_<uchar>(_m1.size(),255) - _m1;
+    // imshow("_m3_0",_m3);
+    // erode(_m1,_m2,b1);
+    // _m2/=255;
+    // erode(_m3,_m3,b2);
+    // imshow("_m30",_m3);
+    // _m3/=255;
+    // _m3 = ((_m2+_m3)-(_m2+_m3)/(_m2+_m3))*255;
+    // imshow("_m3",_m3);
     
 
-    morphologyEx(_m1,_m2,MORPH_HITMISS,b1);
-    imshow("_m200",_m2);
+    // morphologyEx(_m1,_m2,MORPH_HITMISS,b1);
+    // imshow("_m200",_m2);
+
+    Mat input_image = (Mat_<uchar>(8, 8) <<
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 255, 255, 255, 0, 0, 0, 255,
+        0, 255, 255, 255, 0, 0, 0, 0,
+        0, 255, 255, 255, 0, 255, 0, 0,
+        0, 0, 255, 0, 0, 0, 0, 0,
+        0, 0, 255, 0, 0, 255, 255, 0,
+        0, 255, 0, 255, 0, 0, 255, 0,
+        0, 255, 255, 255, 0, 0, 0, 0);
+    Mat kernel = (Mat_<int>(3, 3) <<
+        0, 1, 0,
+        1, -1, 1,
+        0, 1, 0);
+    Mat output_image;
+    morphologyEx(input_image, output_image, MORPH_HITMISS, kernel);
+    const int rate = 50;
+    kernel = (kernel + 1) * 127;
+    kernel.convertTo(kernel, CV_8U);
+    resize(kernel, kernel, Size(), rate, rate, INTER_NEAREST);
+    imshow("kernel", kernel);
+    moveWindow("kernel", 0, 0);
+    resize(input_image, input_image, Size(), rate, rate, INTER_NEAREST);
+    imshow("Original", input_image);
+    moveWindow("Original", 0, 200);
+    resize(output_image, output_image, Size(), rate, rate, INTER_NEAREST);
+    imshow("Hit or Miss", output_image);
+    moveWindow("Hit or Miss", 500, 200);
 }
 
 void Chapter9::CV_BoundaryExtraction(const string &str){

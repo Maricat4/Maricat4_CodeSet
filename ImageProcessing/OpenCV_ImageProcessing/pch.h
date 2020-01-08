@@ -3,7 +3,9 @@
 #define PCH_H
 
 // TODO: 添加要在此处预编译的标头
-#include "Windows.h"
+
+#include <direct.h>//获取当前路径的头文件
+#include <Windows.h>
 #include <iostream>
 #include<opencv2/opencv.hpp>
 #include<string>
