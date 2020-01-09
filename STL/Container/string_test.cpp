@@ -3,16 +3,21 @@
 #include <list>
 #include <vector>
 
-//方便调试获取变量名
-#define  varName(x) #x
-#define  printExp(exp) cout<<#exp<<"为:\t\t"<<(exp)<<endl  //这样就方便调试了，不用一个个的写变量名称了
 
-//typedef basic_string<int> intstring; 
+//方便调试获取变量名
+#define showVar(x) showV(#x,(x))
+
+
 using namespace std;
+template<typename T,typename T1> 
+inline void showV(T a,const T1 &b){
+    cout<<a<<":"<<b<<endl;
+}
 template<typename T>
 inline void showT(T a,const string &b = "output:"){
     cout<<b<<a<<endl;
 }
+//typedef basic_string<int> intstring; 
 #pragma region customize
 namespace customize{
 void test(){
@@ -118,9 +123,48 @@ void stringCapacity(){
 
 }
 void stringCapacity1(){
+    //空字符串大小为1
     string str0;
     cout<<sizeof(*str0.data())<<endl;
     showT(str0);
+    string str1("operating system");
+    showVar(str1);
+    showVar(str1.size());
+    str1.resize(str1.size()-5);
+    showVar(str1);
+    showVar(str1.size());
+    str1.resize(str1.size()+5);
+    showVar(str1);
+    showVar(str1.size());
+    str1.resize(str1.size()+5,'R');
+    showVar(str1);
+    showVar(str1.size());
+    str1.assign(32,'c');
+    showVar(str1);
+    showVar(str1.capacity());
+    str1.reserve(31);
+    showVar(str1);
+    showVar(str1.capacity());
+    str1.reserve(33);
+    showVar(str1);
+    showVar(str1.capacity());
+
+    str1.clear();
+    showVar(str1.size());
+    showVar(str1.capacity());
+    str1.assign(86,'s');
+    showVar(str1);
+    showVar(str1.size());
+    showVar(str1.capacity());
+    str1.shrink_to_fit();
+    showVar(str1);
+    showVar(str1.size());
+    showVar(str1.capacity());
+
+    string str2("aaaaaaaaaaaaaaaaaaaaaaaaa");
+    showVar(str2);
+    showVar(str2.size());
+    showVar(str2.capacity());
 }
 //字符串元素的访问
 void stringElementAcess(){
@@ -252,6 +296,72 @@ void stringModifiers(){
     showT((long long)s4.data(),"s4.data:");
     showT((long long)s3.data(),"s3.data:");
     showT(s3+" "+s4,"s3&s4:");
+    swap(s3,s4);
+    showT((long long)s4.data(),"s4.data:");
+    showT((long long)s3.data(),"s3.data:");
+}
+
+//字符串操作
+void stringOperation(){
+    //compare
+    string s0("f");
+    string s1("d");
+    showVar(s0);
+    showVar(s1);
+    showVar(s0.compare(s1));
+    string s2;
+    showVar(s0.compare(s2));
+
+    string s3("this is a adventure of finding");
+    showVar(s3.find("b"));
+    showVar(s3.npos);
+    showVar(s3.find("abbb",1,2));
+    showVar(s3.rfind('i'));
+    showVar(s3.find_first_of("mnb"));
+    int found = 0;
+    found=s3.find_first_of("shit");
+    while (found!=string::npos)
+    {
+        s3.at(found)='*';
+        found=s3.find_first_of("shit");
+    }
+    showVar(s3);
+
+}
+
+void stringIO(){
+    string s0("abcdefg");
+    ShowStringContent(s0,"s0");
+    showVar(s0.c_str());
+    showVar(s0.data());
+
+    char *s1 = (char *)malloc(5*sizeof(char));
+    char s5[] = "ss";
+    char *s2 = "ssssss";
+    char *s3 = "ssssss1";
+    const char *s4 = "asfeg";
+    string s6("DNM");
+    showVar((long long)s1);
+    showVar((long long)s2);
+    showVar((long long)s3);
+    showVar((long long)s4);
+    showVar((long long)s5);
+    showVar((long long)&s6);
+    char const *p = "asss";
+    s0.copy(s1,3,0);
+    s1[2]='\0';
+    showVar(s1);
+    free(s1);
+    showVar(s0.substr());
+    showVar(s0.substr(0,4));
+
+    cin>>s0;
+    showVar(s0);
+    //cin并非直接从输入中读数据，而是从缓冲区读数据，如果缓冲仍然有数据，便会直接读入。cin.clear的
+    cin.sync();
+    cin.clear();
+    getline(cin,s0);
+    showVar(s0);
 }
 //string测试
 void stringtest(){
@@ -269,7 +379,13 @@ void stringtest(){
     //stringElementAcess();
     
     //string修改
-    stringModifiers();
+    //stringModifiers();
+
+    //string操作
+    //stringOperation();
+
+    //stringIO以及其他函数
+    stringIO();
 }
 }
 #pragma endregion
@@ -308,7 +424,7 @@ int main(){
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr <<"error:"<< e.what() << '\n';
     }
     
     
