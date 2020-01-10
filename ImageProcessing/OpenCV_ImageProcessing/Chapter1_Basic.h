@@ -1,5 +1,9 @@
 #pragma once
+
 #include "pch.h"
+
+using namespace cv;
+using namespace std;
 class Chapter1_Basic
 {
 public:
@@ -24,9 +28,6 @@ public:
 };
 
 
-#include "pch.h"
-#include "Chapter1_Basic.h"
-#include <map>
 
 Chapter1_Basic::Chapter1_Basic()
 {

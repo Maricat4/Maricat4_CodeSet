@@ -15,7 +15,9 @@
 #include "Chapter3.h"
 #include "Chapter4.h"
 #include "Chapter9.h"
+#include "Chapter10.h"
 #include<cmath>
+#include <map>
 using namespace cv;
 using namespace std;
 #endif

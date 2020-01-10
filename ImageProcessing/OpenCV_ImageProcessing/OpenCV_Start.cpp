@@ -25,6 +25,7 @@ void Chapter1_Basic(){
 	//Chapter1_Basic::ResizeImg("pic//girl.tiff",4,4);
 	//Chapter1_Basic::ResizeJ(s);
 }
+
 void Chapter3(){
 	//Chapter3 a;
 	Chapter3::GrayTransform("E:\\MasterCode\\OpenCV\\lena.tif");
@@ -43,38 +44,11 @@ void Chapter3(){
 	//Chapter3::SharpeningFilterSobelOperator("pic//CH03//Fig0342.tif");
 	//Chapter3::CombiningSpatialEnhancement("pic//CH03//Fig0343.tif");
 }
+
 void Chapter4(){
-	// string s = "pic//CH04//pic3.jpg";
-	// cout<<s<<endl;
-	// Mat src = imread(s,0);
-	//cout<<src.size()<<endl;
-	// try
-	// {
-		
-	// try
-	// {
-	// 	Chapter4::HoughW(src);
-	// }
-	// catch(const cv::Exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
-		
-	
-	// }
-	// catch(exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
-	
-	
-	/*Mat la1, la2;
-	la1 = (Mat_<short int>(3, 3) << 0, 1, 0, 1, -4, 1, 0, 1, 0);
-	la2 = (Mat_<short int>(3, 3) << 1, 1, 1, 1, -4, 1, 1, 1, 1);
-	cout << la1.at<short>(1, 1);*/
-	//int ans = 10;
-	//FormalParameter(ans, ans, &ans);
+	Chapter4::FourierTransform("pic\\CH04\\Fig0424(a)(rectangle).tif");
 }
+
 void Chapter9(){
 	//Chapter9::Eroding("pic//CH09//Fig0905(a)(wirebond-mask).tif");  
 	//Chapter9::CV_Dilating("pic//CH09//Fig0907(a)(text_gaps_1_and_2_pixels).tif");  
@@ -102,6 +76,39 @@ void Chapter9(){
 	// }
 
 }
+
+void Chapter10(){
+	string s = "pic//CH10//pic3.jpg";
+	cout<<s<<endl;
+	Mat src = imread(s,0);
+	cout<<src.size()<<endl;
+	try
+	{
+		
+	try
+	{
+		Chapter10::HoughW(src);
+	}
+	catch(const cv::Exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+		
+	
+	}
+	catch(exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+	
+	/*Mat la1, la2;
+	la1 = (Mat_<short int>(3, 3) << 0, 1, 0, 1, -4, 1, 0, 1, 0);
+	la2 = (Mat_<short int>(3, 3) << 1, 1, 1, 1, -4, 1, 1, 1, 1);
+	cout << la1.at<short>(1, 1);*/
+	int ans = 10;
+	FormalParameter(ans, ans, &ans);
+}
 #pragma endregion
 
 int main()
@@ -112,7 +119,9 @@ int main()
 	try
 	{
 		cout<<getcwd(str1,90)<<endl;
-		Chapter9();	
+		Chapter4();
+		//Chapter9();	
+		
 	}
 	catch(const cv::Exception& e)
 	{

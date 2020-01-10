@@ -4,6 +4,8 @@
  * 形态学图像处理
  * 
 ***/
+using namespace cv;
+using namespace std;
 class Chapter9
 {
 public:
