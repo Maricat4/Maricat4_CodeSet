@@ -2,13 +2,9 @@
 #include <iostream>
 #include <list>
 #include <vector>
-
-
+using namespace std;
 //方便调试获取变量名
 #define showVar(x) showV(#x,(x))
-
-
-using namespace std;
 template<typename T,typename T1> 
 inline void showV(T a,const T1 &b){
     cout<<a<<":"<<b<<endl;
