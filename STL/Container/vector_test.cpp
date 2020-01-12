@@ -62,7 +62,7 @@ namespace vectorTest{
         display(test.capacity(),"vector capacity:");
         display((long long)test.data(),"data");
         displayVectorContent(test);
-        display(sizeof(test),"object size");
+        display(sizeof(test),"type size");
         cout<<"-------------------------------------------"<<endl<<endl<<endl;
     }
 
@@ -92,7 +92,21 @@ namespace vectorTest{
 
         //move
         //右值引用
+
+        //initializer list
+        vector<int> v6{1,2,78,97,465,48,8,9};
+        showVector(v6,_var_(v6));
+
+        //sizeof是类型的大小
+        cout<<"v6:"<<sizeof(int)<<endl;
+        cout<<"void*:"<<sizeof(void *)<<endl;
+
     }
+
+    void ElementTest(){
+        //
+    }
+    
 }
 
 
@@ -107,7 +121,8 @@ int main(){
 
     try
     {
-        vectorTest::initTest();
+        //vectorTest::initTest();
+        vectorTest::ElementTest();
     }
     catch(const std::exception& e)
     {
