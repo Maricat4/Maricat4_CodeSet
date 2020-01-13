@@ -43,10 +43,11 @@ void Chapter3(){
 	//Chapter3::NonShrpeningAndHighBoost("pic//CH03//Fig0340.tif");
 	//Chapter3::SharpeningFilterSobelOperator("pic//CH03//Fig0342.tif");
 	//Chapter3::CombiningSpatialEnhancement("pic//CH03//Fig0343.tif");
-}
+}                                                
 
 void Chapter4(){
-	Chapter4::FourierTransform("pic\\CH04\\Fig0424(a)(rectangle).tif");
+	//Chapter4::FourierTransform("pic\\CH04\\Fig0424(a)(rectangle).tif");
+	Chapter4::FourierTransform1("pic\\CH04\\Fig0458(a)(blurry_moon).tif");
 }
 
 void Chapter9(){
