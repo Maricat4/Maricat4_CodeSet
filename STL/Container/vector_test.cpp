@@ -23,13 +23,14 @@ namespace vectorTest{
     //显示确定大小的vector内容
     template<typename T>
     void _displayVectorContent(const vector<T> &test,const size_t &size){
-        string str0;
+        string str0="index\t";
         for (size_t i = 0; i < size; i++)
         {
             
             str0 =str0+to_string(i)+"\t";
         }
         cout<<str0<<endl;
+        cout<<"content\t";
         for (size_t i = 0; i < size; i++)
         {
             cout<<test.at(i)<<'\t';
@@ -104,7 +105,143 @@ namespace vectorTest{
     }
 
     void ElementTest(){
-        //
+        
+        vector<int> v1{1,2,3,4};
+        //front()
+        showVar(v1.front());
+        //at()
+        showVar(v1.at(1));
+        //operator[]
+        showVar(v1[2]);
+        //back()
+        showVar(v1.back());
+
+        void *p1 = v1.data();
+        int *p2 = static_cast<int*>(p1);
+        showVar(p2[0]);
+
+        //iteraotr
+        //beign() end()
+        for (vector<int>::iterator i = v1.begin(); i != v1.end(); i++)
+        {
+            showV("顺序迭代器",*i);
+        }
+        //iteraotr
+        //rbegin() rend()
+        for (vector<int>::reverse_iterator i = v1.rbegin(); i != v1.rend(); i++)
+        {
+            showV("反向迭代器",*i);
+        }
+        
+    }
+
+    void CapacityTest(){
+
+        vector<char> v1;
+        vector<int> v2{1,2,3,4};
+        //empty()
+        showVar(v1.empty());
+        showVar(v2.empty());
+        //size()
+        showVar(v1.size());
+        showVar(v2.size());
+        //maxsize()        
+        showVar(v1.max_size());
+        showVar(v2.max_size());
+        //reserve()
+        showVar((long long)v2.data());
+        v2.reserve(v2.size());
+        showVar((long long)v2.data());  
+        v2.reserve(v2.size()+1);      
+        showVar((long long)v2.data());  
+        //shrink_to_fit()
+        v2.shrink_to_fit();
+        showVar((long long)v2.data()); 
+        showVar(v2.size());
+        //capacity()
+        showVar(v2.capacity());  
+        v2.push_back(5);
+        showVar(v2.capacity());
+
+    }  
+
+    void ModifiersTest(){
+        vector<int> v1{1,2,3,4,5};
+        vector<int> v2{'a','b','c','d'};
+
+        //insert
+        //1.single element
+        int i1 = 6;
+        v1.insert(v1.end(),i1);
+        displayVectorContent(v1);
+        //2.fill
+        v1.insert(v1.end(),2,'a');
+        displayVectorContent(v1);
+        //3.range
+        v1.insert(v1.end(),v2.begin()+1,v2.end());
+        displayVectorContent(v1);
+        //4.move
+        v1.insert(v1.end(),7);
+        displayVectorContent(v1);
+        //5.initializer list
+        v1.insert(v1.end(),{8,9,10});
+        displayVectorContent(v1);
+
+        cout<<"erase:"<<endl;
+        //erase
+        //1.single element
+        showVar(*v1.erase(v1.cend()-2));
+        displayVectorContent(v1);
+        //2.range
+        showVar(*v1.erase(v1.cbegin()+4,v1.cend()-1));
+        displayVectorContent(v1);
+
+        cout<<"emplace&&emplace_back:"<<endl;
+        showVar(*v1.emplace(v1.begin(),89));
+        displayVectorContent(v1);
+        v1.emplace_back(99);
+        displayVectorContent(v1);
+
+        cout<<"push_back&&pop_back:"<<endl;
+        showVar(sizeof(void*));
+        showVar(sizeof(vector<int>));
+        showVar((long long)v1.data());
+        displayVectorContent(v1);
+        v1.pop_back();
+        showVar((long long)v1.data());
+        displayVectorContent(v1);
+
+        cout<<"resize:"<<endl;
+        showVar((long long)v1.data());
+        showVar(v1.size());
+        showVar((long long)v1.data());
+        v1.resize(v1.size()-1);
+        showVar(v1.size());
+        displayVectorContent(v1);
+        v1.resize(v1.size()+1);
+        displayVectorContent(v1);
+        v1.resize(v1.size()+4,666);
+        displayVectorContent(v1);
+
+
+        cout<<"swap:"<<endl;
+        vector<int> v3 = {1314};
+        displayVectorContent(v3);
+        v1.swap(v3);
+        displayVectorContent(v1);
+        displayVectorContent(v3);
+
+        cout<<"clear:"<<endl;
+        v1.clear();
+        displayVectorContent(v1);
+        showVar(*v1.end());
+        showVar(v1.size());
+        showVar(v1.capacity());
+        v3.clear();
+        displayVectorContent(v3);
+        showVar(*v3.end());
+        showVar(v3.size());
+        showVar(v3.capacity());
     }
     
 }
@@ -122,7 +259,9 @@ int main(){
     try
     {
         //vectorTest::initTest();
-        vectorTest::ElementTest();
+        //vectorTest::ElementTest();
+        //vectorTest::CapacityTest();
+        vectorTest::ModifiersTest();
     }
     catch(const std::exception& e)
     {
