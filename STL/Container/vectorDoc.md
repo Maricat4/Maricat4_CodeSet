@@ -1,9 +1,20 @@
 # vector使用
 
+​		对于vector，它的存储结构和数组一样，连续空间。对于vector类型，它的数据成员有三个：
+
+```
+iterator start;
+iterator finish;
+iterator end_of_storage;
+```
+
+​		其增长方式是两倍增长。由于存储空间连续，vector的迭代器本质上仍然是类型的指针。明白这点，以上三个数据成员就非常好理解。start，finsh分别表示正在使用的空间指针。而end_of_storage则表示已经申请到的空间的末尾。
+
 ## 构造、析构、以及赋值
+
 - [**(constructor)**](http://www.cplusplus.com/reference/vector/vector/vector/)
   Construct vector (public member function )构造函数
-  
+
   | 依据函数参数的分类   | 具体函数                                                     |
   | :------------------- | :----------------------------------------------------------- |
   | default (1)          | *vector(); <br>explicit vector (const allocator_type& alloc);* |
@@ -12,10 +23,12 @@
   | copy (4)             | *vector (const vector& x); <br>vector (const vector& x, const allocator_type& alloc);* |
   | move (5)             | *vector (vector&& x); <br>vector (vector&& x, const allocator_type& alloc);* |
   | initializer list (6) | *vector (initializer_list<value_type> il,const allocator_type& alloc = allocator_type());* |
+
   Note:
+
   - 拷贝构造函数(copy,构造函数参数包含vector)需要定义的值类型与拷贝的值类型一致，并且是深拷贝，会开辟新空间。
   - move型构造函数，移动构造函数，C++11新特性，可以减少内存的分配与释放。
-  
+
 - [**(destructor)**](http://www.cplusplus.com/reference/vector/vector/~vector/)
   Vector destructor (public member function )
 
@@ -24,13 +37,13 @@
   copy (1)	vector& operator= (const vector& x);
   move (2)	vector& operator= (vector&& x);
   initializer list (3)	vector& operator= (initializer_list<value_type> il);
-  
+
 - [**assign**](http://www.cplusplus.com/reference/vector/vector/assign/)
   range (1)           template <class InputIterator>
               void assign (InputIterator first, InputIterator last);
   fill (2)	               void assign (size_type n, const value_type& val);
   initializer list(3)   void assign (initializer_list<value_type> il);
-  
+
   普普通通的操作符重载以及赋值函数
 
 ## 元素访问
@@ -42,7 +55,7 @@
 | front      | // 访问第一个元素<br>reference front();<br>const_reference front() const; |
 | back       | //访问最后一个元素<br> reference back();<br>const_reference back() const; |
 | data       | //直接访问隐藏的数组，注意与string不同这里有T * 的重载，而string只有返回const T* 的重载<br>T*   data();          (since C++11)<br>const T* data() const;(since C++11) |
-|  |            |
+|            |                                                              |
 
 ### 迭代器
 
@@ -77,3 +90,10 @@
 | resize()                  | changes the number of elements stored (public member function)<br>void resize (size_type n); <br>void resize (size_type n, const value_type& val) |
 | swap()                    | swaps the contents (public member function)<br>交换两个vector的内容<br>void swap (vector& x); |
 
+## Reference
+
+[1]https://www.bilibili.com/video/av45108908
+
+[2]http://www.cplusplus.com/reference/vector/vector/
+
+[3]https://en.cppreference.com/w/cpp/container/vector
