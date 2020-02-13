@@ -1,7 +1,11 @@
 #ifndef _utility_
 #define _utility_
 #include <string>
+#include <list>
+#include <algorithm>
 #include <iostream>
+#include <deque>
+#include <vector>
 #define _var_(x) #x
 #define showVar(x) showV((x),#x)
 #define showContainerInfo(x) showContainer((x),#x)
