@@ -6,6 +6,11 @@
 #include <iostream>
 #include <deque>
 #include <vector>
+#include <queue>
+#include <set>
+#include <map>
+#define INF 0x7fffffff
+#define NINF 1<<31
 #define _var_(x) #x
 #define showVar(x) showV((x),#x)
 #define showContainerInfo(x) showContainer((x),#x)
@@ -35,6 +40,36 @@ inline void _showContainerContent(T a,const char *str){
     for (auto i = a.begin();i != a.end(); i++)
     {
         std::cout<<*i<<",";
+    }
+    std::cout<<std::endl;
+}
+//函数模板全特化
+typedef std::map<int,char> maptype1;
+typedef std::map<int,int>  maptype2;
+template<>
+inline void _showContainerContent<maptype1>(maptype1 a,const char *str){
+    std::cout<<str<<":";
+    if(a.size() == 0) {
+        std::cout<<"无元素"<<std::endl;
+        return;
+    }
+    for (auto i = a.begin();i != a.end(); i++)
+    {
+        std::cout<<"("<<i->first<<","<<i->second<<")"<<",";
+    }
+    std::cout<<std::endl;
+}
+//函数模板全特化
+template<>
+inline void _showContainerContent<maptype2>(maptype2 a,const char *str){
+    std::cout<<str<<":";
+    if(a.size() == 0) {
+        std::cout<<"无元素"<<std::endl;
+        return;
+    }
+    for (auto i = a.begin();i != a.end(); i++)
+    {
+        std::cout<<"("<<i->first<<","<<i->second<<")"<<",";
     }
     std::cout<<std::endl;
 }
