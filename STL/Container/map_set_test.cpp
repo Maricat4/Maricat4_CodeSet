@@ -81,13 +81,31 @@ void map_set_modifiers(){
     showContainerContent(m1);
 
     //insert_or_assign
-    //m1.insert_or_assign(it3,33,'a');
-    //这里使用的标准不是C++17,所以上面的方法无法运行
+    m1.insert_or_assign(it3,98,'a');
+    //使用的标准若不是C++17,上面的方法会无法运行
     cout<<__cplusplus<<endl;
     showContainerContent(m1);
-
     
+    //extract 提取元素，同样会断开其在map中的连接
+    auto value1 = m1.extract(98);
+    showContainerContent(m1);
+    showVar(value1.key());
+    showVar(value1.mapped());
 
+    pair<int,char> p1[10]{{1,'a'},{2,'b'},{3,'c'},{4,'d'},{5,'e'},{6,'f'},{7,'g'},{888,'h'},{999,'i'},{1000,'j'}};
+    map<int,char> m2(p1,p1+10);
+    showContainerContent(m2);
+    m1.merge(m2);
+    showContainerContent(m1);
+    showContainerContent(m2);
+    m2.clear();
+    showContainerContent(m2);
+
+
+}
+//返回仿函数
+void map_set_observers(){
+    
 }
 }
 int main(){
