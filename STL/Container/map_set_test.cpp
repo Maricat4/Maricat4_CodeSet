@@ -105,8 +105,17 @@ void map_set_modifiers(){
 }
 //·µ»Ø·Âº¯Êý
 void map_set_observers(){
-    
-}
+    map<int,char> m1;
+    //·Âº¯Êý
+    auto fun1 = m1.key_comp();
+    auto fun2 = m1.value_comp();
+    int a = 1,b =2;
+    pair<const int,char> p1={2,'s'},p2 = {-8,'t'};
+    showVar(fun1(a,b));
+    showVar(fun1(b,a));
+    showVar(fun2(p1,p2));
+    showVar(fun2(p2,p1));
+}  
 }
 int main(){
     try
@@ -114,7 +123,8 @@ int main(){
        //Map_Set_Test::map_set_init();      
        //Map_Set_Test::map_set_capcicity();   
        //Map_Set_Test::map_set_lookup();
-       Map_Set_Test::map_set_modifiers();
+       //Map_Set_Test::map_set_modifiers();
+       Map_Set_Test::map_set_observers();
     }
     catch(const std::exception& e)
     {
